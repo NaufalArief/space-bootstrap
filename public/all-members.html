@@ -1,0 +1,1382 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Space Tec '24 - Member Profile</title>
+    <link rel="icon" href="assets/img/bulet.jpeg" type="image/x-icon">
+    <link rel="stylesheet" href="assets/css/profile.css" />
+    <style>
+        /* Sembunyikan semua profil secara default */
+        .member-profile {
+            display: none;
+        }
+        /* Pastikan konten utama bisa di tengah saat satu profil ditampilkan */
+        .main-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-grow: 1;
+        }
+    </style>
+</head>
+<body>
+    <div class="stars"></div>
+    
+    <div class="container">
+        <nav class="sidebar">
+            <div class="logo">
+                <span>SPACE</span>
+                <div class="logo-icon">
+                    <img src="assets/img/remove bg.png" alt="Logo" class="logo-img" />
+                </div>
+            </div>
+            
+            <ul class="nav-menu">
+                <li class="nav-item">
+                    <a href="dashboard.html" class="nav-link">
+                        <svg class="nav-icon" viewBox="0 0 24 24"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="members.html" class="nav-link">
+                        <svg class="nav-icon" viewBox="0 0 24 24"><path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A2.51 2.51 0 0 0 17.56 7c-.61 0-1.18.23-1.61.61L12 11.5 8.05 7.61C7.62 7.23 7.05 7 6.44 7c-1.09 0-2.05.67-2.4 1.63L1.5 16H4v6h2v-6h2.5l1.5-4.5L12 14l2-2.5L15.5 16H18v6h2z"/></svg>
+                        <span>Members</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.instagram.com/space.tec24?igsh=MW83OGNja3dweHhjMw==" class="nav-link" target="_blank" rel="noopener noreferrer">
+                        <svg class="nav-icon" viewBox="0 0 24 24"><path d="M7.8 2h8.4C19.4 2 22 4.6 22 7.8v8.4a5.8 5.8 0 0 1-5.8 5.8H7.8C4.6 22 2 19.4 2 16.2V7.8A5.8 5.8 0 0 1 7.8 2m-.2 2A3.6 3.6 0 0 0 4 7.6v8.8C4 18.39 5.61 20 7.6 20h8.8a3.6 3.6 0 0 0 3.6-3.6V7.6C20 5.61 18.39 4 16.4 4H7.6m9.65 1.5a1.25 1.25 0 0 1 1.25 1.25A1.25 1.25 0 0 1 17.25 8 1.25 1.25 0 0 1 16 6.75a1.25 1.25 0 0 1 1.25-1.25M12 7a5 5 0 0 1 5 5 5 5 0 0 1-5 5 5 5 0 0 1-5-5 5 5 0 0 1 5-5m0 2a3 3 0 0 0-3 3 3 3 0 0 0 3 3 3 3 0 0 0 3-3 3 3 0 0 0-3-3z"/></svg>
+                        <span>Instagram</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://www.tiktok.com/@space.tec24?_t=ZS-8weuykDPj0M&_r=1" class="nav-link" target="_blank" rel="noopener noreferrer">
+                        <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>
+                        <span>TikTok</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://youtube.com/@space.tec24?si=J79mJn0QKMsmMZ3e" class="nav-link youtube-link" target="_blank" rel="noopener noreferrer">
+                        <svg class="nav-icon" viewBox="0 0 24 24"><path d="M23.498 6.186a2.95 2.95 0 00-2.078-2.08C19.538 3.6 12 3.6 12 3.6s-7.538 0-9.42.507a2.95 2.95 0 00-2.08 2.08A30.14 30.14 0 000 12a30.14 30.14 0 00.5 5.814 2.95 2.95 0 002.08 2.08c1.882.506 9.42.506 9.42.506s7.538 0 9.42-.506a2.95 2.95 0 002.08-2.08A30.14 30.14 0 0024 12a30.14 30.14 0 00-.502-5.814zM9.6 15.6V8.4L15.6 12l-6 3.6z" /></svg>
+                        <span>YouTube</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="https://open.spotify.com/playlist/3vywmKRR0aHgPqVhIijXwB?si=IbRFt077RZmTPUfaIQmtFg&pi=ghlvEfOzQY--w" class="nav-link" target="_blank" rel="noopener noreferrer">
+                        <svg class="nav-icon" viewBox="0 0 24 24"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.42 1.56-.299.421-1.02.599-1.559.3z"/></svg>
+                        <span>Spotify</span>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+
+        <main class="main-content">
+            <div id="1" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Adif_Ifani_Hartoyo.jpg" alt="Foto Adif" class="avatar-img">
+                            </div>
+                            <h3>Adif Ifani Hartoyo</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item"><label>NAMA:</label><span>Adif Ifani Hartoyo</span></div>
+                            <div class="detail-item"><label>NPM:</label><span>24783069</span></div>
+                            <div class="detail-item"><label>JURUSAN:</label><span>Teknologi Informasi</span></div>
+                            <div class="detail-item"><label>PRODI:</label><span>Teknologi Rekayasa Perangkat Lunak</span></div>
+                            <div class="detail-item"><label>QUOTES:</label><span>"Tumbuh dengan ilmu, hidup dengan makna."</span></div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code"><img src="assets/qr/adip lagi.png" alt="QR Code" class="qr-image"></div>
+                            <a href="members.html"><button class="complete-btn">Other Members</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="3" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar"><img src="assets/img/members/Alfatihaharavah.jpeg" alt="Foto Alfatihaharavah" class="avatar-img"></div>
+                            <h3>Alfatiharavah Qisty</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item"><label>NAMA:</label><span>Alfatiharavah Qisty</span></div>
+                            <div class="detail-item"><label>NPM:</label><span>24783071</span></div>
+                            <div class="detail-item"><label>JURUSAN:</label><span>Teknologi Informasi</span></div>
+                            <div class="detail-item"><label>PRODI:</label><span>Teknologi Rekayasa Perangkat Lunak</span></div>
+                            <div class="detail-item"><label>QUOTES:</label><span>Kebanyakan kegagalan berasal dari takut gagal</span></div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code"><img src="assets/qr/alfatihah.png" alt="QR Code" class="qr-image"></div>
+                            <a href="members.html"><button class="complete-btn">Other Members</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="4" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar"><img src="assets/img/members/Andika_Sandi_Pranata.jpg" alt="Foto Andika" class="avatar-img"></div>
+                            <h3>Andika Sandi Pranata</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item"><label>NAMA:</label><span>Andika Sandi Pranata</span></div>
+                            <div class="detail-item"><label>NPM:</label><span>24783072</span></div>
+                            <div class="detail-item"><label>JURUSAN:</label><span>Teknologi Informasi</span></div>
+                            <div class="detail-item"><label>PRODI:</label><span>Teknologi Rekayasa Perangkat Lunak</span></div>
+                            <div class="detail-item"><label>QUOTES:</label><span>You can be anything you want</span></div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code"><img src="assets/qr/andika.jpg" alt="QR Code" class="qr-image"></div>
+                            <a href="members.html"><button class="complete-btn">Other Members</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="5" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Bangun_Gilang.png" alt="Foto Gilang" class="avatar-img">
+                            </div>
+                            <h3>Bangun Gilang Saputra Dolok Saribu</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Bangun Gilang Saputra Dolok Saribu</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783073</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>"Life's simple, you make choices and you don't look back"</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/Bangun.jpg" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="6" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Dede_Aprizal.jpeg" alt="Foto Dede" class="avatar-img">
+                            </div>
+                            <h3>Dede Aprizal</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Dede Aprizal</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783075</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Cita cita itu dikejar bukan ditunggu, kalau mereka bisa kenapa kita tidak</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/Dede.jpg" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="7" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Donatus_Gitsco_Paolo_Aswin .jpg" alt="Foto Donatus" class="avatar-img">
+                            </div>
+                            <h3>Donatus Gitsco Paolo Aswin</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Donatus Gitsco Paolo Aswin</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783076</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Jadi diri sendiri lebih baik,karna pada akhirnya dari diri sendiri kita menentukan hidup kita</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/Donatus.jpg" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="8" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Faqih_Abdurrohman.jpg" alt="Foto Faqih" class="avatar-img">
+                            </div>
+                            <h3>Faqih Abdurrohman</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Faqih Abdurrohman</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783077</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Terus berbuat baik merupakan investasi terbaik</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/Faqih.jpg" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="9" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Feri_Setiawan.jpeg" alt="Foto Feri" class="avatar-img">
+                            </div>
+                            <h3>Feri Setiawan</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Feri Setiawan</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783078</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>life is simple, but not easy</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/feri.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="10" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Hendi_Firmansah.jpg" alt="Foto Hendi" class="avatar-img">
+                            </div>
+                            <h3>Hendi Firmansah</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Hendi Firmansah</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783079</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>" NETWORKING ITU LEBIH PENTING DARIPADA MENJADI PINTAR "</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/Hendi.jpg" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="11" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/I_Komang_Ari_Wijaya_Saputra .JPG" alt="Foto Komang" class="avatar-img">
+                            </div>
+                            <h3>I Komang Ari Wijaya Saputra</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>I Komang Ari Wijaya Saputra</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783102</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Berjuanglah Selagi Masih Hidup</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/ikomang.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="13" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Liyana_syafiqa.webp" alt="Foto Liyana_syafiqa" class="avatar-img">
+                            </div>
+                            <h3>Liyana syafiqa</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Liyana syafiqa</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783082</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>jangan pernah berhenti berbuat baik dan membantu orang ‼️</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/Liyana.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="14" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/M_Maheza_Raisuli.jpg" alt="Foto Maheza" class="avatar-img">
+                            </div>
+                            <h3>M.Maheza Raisuli</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>M.Maheza Raisuli</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783083</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Kalau kamu tidak mencoba, kamu tidak akan tahu hasilnya</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/Maheza.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="15" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Maharani_Najla_Azzahra.jpg" alt="Foto Maharani" class="avatar-img">
+                            </div>
+                            <h3>Maharani Najla Azzahra</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Maharani Najla Azzahra</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783084</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Don't just dream, but make it happen</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/Maharani.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="16" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Marshal_Frans_Faith_Wolf.jpg" alt="Foto Marshal" class="avatar-img">
+                            </div>
+                            <h3>Marshal Frans Faith Wolf</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Marshal Frans Faith Wolf</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783085</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>"Hidup bukan soal menunggu badai reda, tapi belajar menari di tengah badai."</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="qr/" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="17" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/M_Jibril_Alghifari.jpg" alt="Foto Jibril" class="avatar-img">
+                            </div>
+                            <h3>Muhammad Jibril Al Ghifari</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Muhammad Jibril Al Ghifari</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783086</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Ngeluh boleh, capek juga boleh, bosen? boleh, Nyerah? JANGAN, jalani kehidupan sebaik mungkin. STAY STRONG, I Love You All.</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/M jibril.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="18" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Muhammad_Fahry_Arief_Billah.jpg" alt="Foto Fahry" class="avatar-img">
+                            </div>
+                            <h3>Muhammad Fahry Arief Billah</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Muhammad Fahry Arief Billah</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783087</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Berdoa dan Berusaha</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/fahry.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="19" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/M_Kelvin_Azzufar.jpeg" alt="Foto kelpin" class="avatar-img">
+                            </div>
+                            <h3>Muhammad Kelvin Azzufar</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Muhammad Kelvin Azzufar</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783088</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Tidak ada Moto adanya Motor</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/M kelpin.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="20" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/M_Taaudz_Syahti_Ismail.jpg" alt="Foto taut" class="avatar-img">
+                            </div>
+                            <h3>Muhammad Taaudz Syahti Ismail</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Muhammad Taaudz Syahti Ismail</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783089</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Hidup hanya bisa dimengerti dengan melihat ke belakang, tetapi ia terus berlanjut ke depan.</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/M taut.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="21" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/IMG_2043.JPEG" alt="Foto Nabilah" class="avatar-img">
+                            </div>
+                            <h3>Nabilah Titta Ridya</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Nabilah Titta Ridya</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783090</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Jalan hidupmu hanya milikmu sendiri, rasakan nikmatnya hidupmu hari ini. (Hindia - Baskara Putra)</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/Nabila.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="22" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Naufal_Arief_Rahman.jpeg" alt="Foto Naufal_Arief_Rahman" class="avatar-img">
+                            </div>
+                            <h3>Naufal Arief Rahman</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Naufal Arief Rahman</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783091</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>"kalau kita gabisa menang di suatu kompetisi,seengganya kita udah menang dari diri kita sendiri"</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/img/naufal.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="23" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Nova_Ade_Irma_Lestari.jpg" alt="Foto nopa" class="avatar-img">
+                            </div>
+                            <h3>Nova Ade Irma Lestari</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Nova Ade Irma Lestari</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783092</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>"Mungkin kamu bisa mengandalkan semua orang, tapi yang bisa kamu andalkan hanyalah dirimu sendiri"</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/nova.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="24" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Oktaviana.jpg" alt="Foto Oktaviana" class="avatar-img">
+                            </div>
+                            <h3>Oktaviana</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Oktaviana</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783093</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>"Hidup adalah perjalanan yang indah"</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/Okta.jpg" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="25" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Raditya_Ramadhani.jpeg" alt="Foto radit" class="avatar-img">
+                            </div>
+                            <h3>Raditya Ramadhani</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Raditya Ramadhani</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783094</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>when nothing is going right, go left</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/radit.png" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="26" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Rafles_Arfatora.jpg" alt="Foto rafles" class="avatar-img">
+                            </div>
+                            <h3>Rafles Arfatora</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Rafles Arfatora</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783095</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Ingin sukses dan membanggakan orang tua</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/rafles.jpg" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="27" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Raihan_Nafis_Murtadha.jpg" alt="Foto Raihan" class="avatar-img">
+                            </div>
+                            <h3>Raihan Nafis Murtadha</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Raihan Nafis Murtadha</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24773096</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Jalani hidup yang kamu mau, ikuti kata hati mu teruslah melangkah kedepan dan jangan sekali kali lihat kebelakang</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="qr/" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="28" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Rifqy_Aditya_Elfateh.jpg" alt="Foto rifqy" class="avatar-img">
+                            </div>
+                            <h3>Rifqy Aditya Elfateh</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Rifqy Aditya Elfateh</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783097</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Asal ada oksigen tetap hidup</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/rifqy.jpg" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="29" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Saddam_Rexa_Yaumi_Arfah .jpg" alt="Foto sadam" class="avatar-img">
+                            </div>
+                            <h3>Saddam Rexa Yaumi Arfah</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Saddam Rexa Yaumi Arfah</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783098</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>“Tidur 8 jam itu sehat, tapi kapan?”</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/sadam.jpg" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="30" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Siti_Aulia_Adzani.jpeg" alt="Foto siti" class="avatar-img">
+                            </div>
+                            <h3>Siti Aulia Adzani</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Siti Aulia Adzani</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783099</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>"Jangan pernah menyerah demi membahagiakan orangtua"</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/siti aulia.jpg" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="31" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/WhatsApp Image 2025-05-28 at 8.42.11 AM.jpeg" alt="Foto Talitha" class="avatar-img">
+                            </div>
+                            <h3>Talitha Putri Hernisa Dewi</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Talitha Putri Hernisa Dewi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783100</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>jual apapun yang bisa dijual</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/Talita.jpg" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="32" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Wati_Puspitasari.jpg" alt="WATI" class="avatar-img">
+                            </div>
+                            <h3>WATI PUSPITA SARI</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>WATI PUSPITA SARI</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783101</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>Make today count.</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="qr/" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <div id="33" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/ys.jpeg" alt="Yunanda" class="avatar-img">
+                            </div>
+                            <h3>Yunanda Sabrina</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Yunanda Sabrina</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783102</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>don't listen to them,cause what do they know?</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/img/members/WhatsApp Image 2025-05-30 at 7.11.43 PM.jpeg" alt="QR Code" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            function showProfileBasedOnHash() {
+                // Sembunyikan semua profil terlebih dahulu
+                document.querySelectorAll('.member-profile').forEach(profile => {
+                    profile.style.display = 'none';
+                });
+
+                // Dapatkan ID dari URL hash (misalnya: #1)
+                const profileId = window.location.hash.substring(1);
+
+                // Jika ada ID di URL, tampilkan profil yang sesuai
+                if (profileId) {
+                    const profileToShow = document.getElementById(profileId);
+                    if (profileToShow) {
+                        profileToShow.style.display = 'block';
+                    }
+                }
+            }
+
+            // Panggil fungsi saat halaman pertama kali dimuat
+            showProfileBasedOnHash();
+
+            // Panggil fungsi lagi jika hash URL berubah (jika pengguna menggunakan tombol back/forward browser)
+            window.addEventListener('hashchange', showProfileBasedOnHash);
+        });
+    </script>
+</body>
+</html>
