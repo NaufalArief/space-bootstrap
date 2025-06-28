@@ -1,0 +1,400 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Animated stars background */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.stars::before,
+.stars::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: sparkle 20s linear infinite;
+}
+
+.stars::after {
+    background-image: 
+        radial-gradient(1px 1px at 40px 60px, #fff, transparent),
+        radial-gradient(1px 1px at 80px 10px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(2px 2px at 120px 50px, #eee, transparent);
+    background-size: 180px 120px;
+    animation: sparkle 25s linear infinite reverse;
+}
+
+@keyframes sparkle {
+    from { transform: translateX(0); }
+    to { transform: translateX(-200px); }
+}
+
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* Sidebar */
+.sidebar {
+    width: 280px;
+    background: rgba(20, 25, 45, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.3s ease;
+    position: fixed; /* Keep sidebar fixed */
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Allow scrolling for many nav items */
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    font-size: 1.8rem;
+    font-weight: bold;
+}
+
+.logo-icon img.logo-img {
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #ffffff 0%, #fbfbfb 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-menu {
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 1rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.nav-link:hover {
+    background: linear-gradient(45deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+    color: white;
+    transform: translateX(5px);
+}
+
+.nav-link.active {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    background: rgba(10, 14, 39, 0.3);
+    margin-left: 280px; /* Adjust margin to account for fixed sidebar */
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header h1 {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header p {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Positions Grid */
+.positions-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    max-width: 1400px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.position-card {
+    position: relative;
+    /* Min-height adjusted to accommodate content more gracefully */
+    min-height: 320px; 
+    border-radius: 20px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.08), rgba(118, 75, 162, 0.08)); /* Slightly lighter background */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    display: flex;
+    flex-direction: column; /* Stack elements vertically */
+    align-items: center; /* Center horizontally */
+    text-align: center; /* Center text */
+    padding-bottom: 0; /* No extra padding at card bottom, details container handles it */
+}
+
+.position-card:hover {
+    transform: translateY(-10px) scale(1.02);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+    border-color: rgba(102, 126, 234, 0.5);
+}
+
+.position-photo {
+    width: 100%;
+    height: 200px; /* Fixed height for photos */
+    object-fit: cover;
+    transition: all 0.3s ease;
+    border-radius: 20px 20px 0 0; /* Rounded top corners, sharp bottom */
+    flex-shrink: 0; /* Prevent photo from shrinking */
+    pointer-events: none; /* Allows click through if needed, though not directly clickable here */
+}
+
+.position-card:hover .position-photo {
+    transform: scale(1.05); /* Slightly less aggressive scale on hover */
+}
+
+/* Container for Name and Positions - Always Visible */
+.position-details-container { /* Renamed for more general use */
+    width: 100%; /* Take full width */
+    padding: 1rem; /* Padding inside this container */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    flex-grow: 1; /* Allow this section to take up available space */
+    position: relative; /* Needed for text-shadow on name */
+    z-index: 2; /* Ensure text is above photo if needed */
+    background: linear-gradient(rgba(0,0,0,0.3), transparent); /* Subtle gradient behind text */
+    border-radius: 0 0 20px 20px; /* Rounded bottom corners */
+    margin-top: -1px; /* Overlap slightly with photo border */
+}
+
+.person-name {
+    font-size: 1.35rem; /* Slightly larger font for the main name */
+    font-weight: bold;
+    color: white;
+    margin-bottom: 0.6rem; /* Space below name */
+    text-shadow: 0 0 10px rgba(0,0,0,0.8); /* Stronger shadow for readability */
+    letter-spacing: 0.02em; /* Slightly more space between letters */
+}
+
+.person-positions {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto; /* Enable scrolling for many positions */
+    max-height: 100px; /* Set a max height for positions section */
+    scrollbar-width: thin; /* For Firefox */
+    scrollbar-color: #667eea transparent; /* For Firefox */
+}
+
+/* Custom scrollbar for Webkit browsers */
+.person-positions::-webkit-scrollbar {
+    width: 6px;
+}
+.person-positions::-webkit-scrollbar-thumb {
+    background-color: #667eea;
+    border-radius: 10px;
+}
+.person-positions::-webkit-scrollbar-track {
+    background-color: transparent;
+}
+
+
+.position-item { /* Renamed from .position-title for clarity in this context */
+    font-size: 0.9rem; /* Consistent font size */
+    color: rgba(255, 255, 255, 0.7); /* Slightly softer color */
+    margin-bottom: 0.3rem; /* Space between each position item */
+    line-height: 1.4; /* Improved line spacing */
+    padding: 0 0.5rem; /* Horizontal padding for text within card */
+}
+
+/* Remove margin-bottom for the last position item */
+.person-positions .position-item:last-child {
+    margin-bottom: 0;
+}
+
+
+/* Empty Slot Styling */
+.empty-slot {
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px dashed rgba(255, 255, 255, 0.2);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 320px; /* Match min-height of other cards */
+    padding-bottom: 0; /* No extra padding here */
+    text-align: center;
+    color: rgba(255, 255, 255, 0.6); /* Lighter text for placeholder */
+}
+
+.empty-slot .position-photo {
+    height: 150px; /* Smaller photo placeholder for empty slot */
+    object-fit: contain; /* Contain it for placeholder */
+    filter: grayscale(100%); /* Grayscale for placeholder image */
+    opacity: 0.6; /* More subtle opacity */
+    border-radius: 20px; /* Fully rounded for empty slot photo */
+}
+
+.empty-slot .position-details-container {
+    padding: 1rem; /* Adjust padding for empty slot text */
+    justify-content: center;
+    flex-grow: 0; /* Don't grow for empty slot */
+    background: none; /* No gradient for empty slot text area */
+    border-bottom: none;
+    margin-top: 0;
+}
+
+.empty-slot .person-name {
+    margin-bottom: 0.5rem; /* Adjust margin for empty slot name */
+    font-size: 1.2rem;
+    text-shadow: none;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.empty-slot .person-positions {
+    max-height: none; /* No max-height for empty slot positions */
+    overflow-y: visible; /* No scrollbar */
+    padding: 0 1rem;
+}
+
+.empty-slot .position-item {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 70px;
+        padding: 1rem 0.5rem;
+    }
+
+    .logo span,
+    .nav-link span {
+        display: none;
+    }
+
+    .main-content {
+        margin-left: 70px;
+        padding: 1rem;
+    }
+
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .positions-grid {
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 0.8rem;
+    }
+
+    .position-card {
+        min-height: 250px; /* Adjusted min-height for smaller screens */
+    }
+
+    .position-photo {
+        height: 130px; /* Smaller fixed height for photos */
+    }
+
+    .position-details-container {
+        padding: 0.75rem;
+    }
+
+    .person-name {
+        font-size: 1.15rem;
+        margin-bottom: 0.4rem;
+    }
+
+    .person-positions {
+        max-height: 80px; /* Adjust max-height for scrolling on small screens */
+    }
+
+    .position-item {
+        font-size: 0.75rem;
+        margin-bottom: 0.2rem;
+        padding: 0 0.25rem;
+    }
+
+    .empty-slot {
+        min-height: 250px; /* Match other cards on small screens */
+    }
+    .empty-slot .position-photo {
+        height: 100px;
+    }
+}

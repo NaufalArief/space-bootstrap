@@ -69,11 +69,14 @@ body {
 /* Sidebar */
 .sidebar {
     width: 280px;
-    background: rgba(20, 25, 45, 0.95); /* Changed from rgba(26, 26, 46, 0.8) */
+    background: rgba(20, 25, 45, 0.95);
     backdrop-filter: blur(10px);
     padding: 2rem;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     transition: all 0.3s ease;
+    position: fixed; /* Keep sidebar fixed */
+    height: 100vh; /* Full height */
+    overflow-y: auto; /* Allow scrolling for many nav items */
 }
 
 .logo {
@@ -141,11 +144,13 @@ body {
     fill: currentColor;
 }
 
-/* Main content */
+
+/* ===== Achievements Page ===== */
 .main-content {
     flex: 1;
     padding: 2rem;
     background: rgba(10, 14, 39, 0.3);
+    margin-left: 280px; /* Adjust margin to account for fixed sidebar */
 }
 
 .header {
@@ -173,14 +178,82 @@ body {
     font-style: italic;
 }
 
-/* Gallery */
+/* Grid Gallery untuk Achievements - Improved Layout */
+
 .gallery {
     display: grid;
-    grid-template-columns: repeat(auto-fit, 300px);
+    /* Menampilkan 3 kolom dengan ukuran yang sama, minmax untuk responsivitas */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-auto-rows: 300px; /* Set fixed row height for all items */
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
     justify-content: center;
+}
+
+/* ... (kode CSS yang sudah ada) ... */
+
+/* Responsive tweaks */
+@media (max-width: 768px) {
+    /* ... (kode CSS yang sudah ada) ... */
+
+    .gallery {
+        /* Pada layar tablet, bisa tetap 2 kolom atau disesuaikan */
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
+        gap: 1rem;
+    }
+
+    /* ... (kode CSS yang sudah ada) ... */
+}
+
+@media (max-width: 480px) {
+    /* ... (kode CSS yang sudah ada) ... */
+    .gallery {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: 1rem;
+    }
+    /* ... (kode CSS yang sudah ada) ... */
+}
+
+/* Styles for the Modal/Lightbox */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+    align-items: center;
+    justify-content: center;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain; /* Ensure the image fits within the modal */
+}
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
 }
 
 .gallery-item {
@@ -192,20 +265,20 @@ body {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    width: 300px;
-    height: 300px;
+    display: flex; /* Use flex to align image/overlay within */
+    flex-direction: column;
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 100%; /* Take full height of its container */
+    object-fit: cover;
+    transition: all 0.3s ease;
 }
 
 .gallery-item:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
-}
-
-.gallery-item img {
-    width: 300px;
-    height: 300px;
-    object-fit: cover;
-    transition: all 0.3s ease;
 }
 
 .gallery-item:hover img {
@@ -214,124 +287,97 @@ body {
 
 .gallery-overlay {
     position: absolute;
-    top: 0;
+    bottom: 0;
     left: 0;
     right: 0;
-    bottom: 0;
-    background: linear-gradient(135deg, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.8));
-    opacity: 0;
-    transition: all 0.3s ease;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.6));
     color: white;
     font-weight: bold;
     font-size: 1.1rem;
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease;
+    display: flex; /* Use flex to center text vertically */
+    align-items: center;
+    justify-content: center;
+    min-height: 80px; /* Ensure a minimum height for the overlay */
 }
 
 .gallery-item:hover .gallery-overlay {
     opacity: 1;
 }
 
-/* Special grid layouts */
-.gallery-item:nth-child(4) {
+/* Specific styling for varying heights (e.g., for a "masonry" effect) */
+/* Dihapus/dinonaktifkan untuk membuat semua ukuran sama */
+/*
+.gallery-item:nth-child(even) {
+    grid-row: span 2;
+}
+
+.gallery-item:nth-child(3n) {
+    grid-column: span 1;
     grid-row: span 1;
-    width: 300px;
-    height: 300px;
 }
 
-.gallery-item:nth-child(4) img {
-    height: 300px;
+.gallery-item:nth-child(5n) {
+    grid-row: span 3;
 }
+*/
 
-.gallery-item:nth-child(6),
-.gallery-item:nth-child(7) {
-    height: 300px;
-    width: 300px;
-}
 
-.gallery-item:nth-child(6) img,
-.gallery-item:nth-child(7) img {
-    height: 300px;
-}
-
-/* Modal */
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.9);
-    backdrop-filter: blur(10px);
-}
-
-.modal-content {
-    position: relative;
-    margin: 5% auto;
-    max-width: 80%;
-    max-height: 80%;
-}
-
-.modal-content img {
-    width: 100%;
-    height: auto;
-    border-radius: 15px;
-}
-
-.close {
-    position: absolute;
-    top: -40px;
-    right: 0;
-    color: white;
-    font-size: 30px;
-    font-weight: bold;
-    cursor: pointer;
-    background: rgba(255, 255, 255, 0.2);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
-}
-
-.close:hover {
-    background: rgba(255, 255, 255, 0.3);
-    transform: scale(1.1);
-}
-
-/* Responsive */
+/* Responsive tweaks */
 @media (max-width: 768px) {
-    .container {
-        flex-direction: column;
-    }
-    
     .sidebar {
-        width: 100%;
+        width: 70px; /* Collapsed sidebar */
+        padding: 1rem 0.5rem;
+    }
+
+    .logo span,
+    .nav-link span {
+        display: none; /* Hide text in collapsed sidebar */
+    }
+
+    .main-content {
+        margin-left: 70px; /* Adjust margin for collapsed sidebar */
         padding: 1rem;
     }
-    
-    .gallery {
-        grid-template-columns: 1fr;
-    }
-    
-    .gallery-item {
-        grid-row: span 1 !important;
-        height: 300px !important;
-        width: 300px !important;
-        margin: 0 auto;
-    }
-    
-    .gallery-item img {
-        height: 300px !important;
-        width: 300px !important;
-    }
-    
+
     .header h1 {
         font-size: 2rem;
+    }
+
+    .gallery {
+        grid-template-columns: 1fr; /* Single column on small screens */
+        gap: 1rem;
+    }
+
+    .gallery-item {
+        height: auto; /* Allow height to adjust */
+        grid-row: auto !important; /* Reset row span on small screens */
+        grid-column: auto !important; /* Reset column span on small screens */
+    }
+
+    .gallery-item img {
+        height: 200px; /* Set a default height for images on small screens */
+        object-fit: cover;
+    }
+
+    .gallery-overlay {
+        min-height: 60px; /* Smaller min-height for overlay on small screens */
+        padding: 0.8rem;
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .header {
+        padding: 2rem 1rem;
+    }
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    .header p {
+        font-size: 1rem;
     }
 }

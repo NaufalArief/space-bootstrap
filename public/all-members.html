@@ -17,6 +17,15 @@
             justify-content: center;
             align-items: center;
             flex-grow: 1;
+            padding: 2rem; /* Add padding to main content */
+            box-sizing: border-box; /* Include padding in width calculation */
+        }
+
+        /* Responsive adjustments for main-content */
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 1rem;
+            }
         }
     </style>
 </head>
@@ -43,6 +52,24 @@
                     <a href="members.html" class="nav-link">
                         <svg class="nav-icon" viewBox="0 0 24 24"><path d="M16 4c0-1.11.89-2 2-2s2 .89 2 2-.89 2-2 2-2-.89-2-2zm4 18v-6h2.5l-2.54-7.63A2.51 2.51 0 0 0 17.56 7c-.61 0-1.18.23-1.61.61L12 11.5 8.05 7.61C7.62 7.23 7.05 7 6.44 7c-1.09 0-2.05.67-2.4 1.63L1.5 16H4v6h2v-6h2.5l1.5-4.5L12 14l2-2.5L15.5 16H18v6h2z"/></svg>
                         <span>Members</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="achievements.html" class="nav-link">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M4 10v2l8 5 8-5v-2l-8 5-8-5zm8-8L2 6l10 6 10-6-10-4zM4 17h16v2H4v-2z"/>
+                        </svg>
+                        <span>Achievements</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a href="positions.html" class="nav-link">
+                        <svg class="nav-icon" viewBox="0 0 24 24">
+                            <path d="M12 2L15.09 8.26 22 9.27 17 14.14 
+                            18.18 21.02 12 17.77 5.82 21.02 
+                            7 14.14 2 9.27 8.91 8.26 12 2z"/>
+                        </svg>
+                        <span>Positions</span>
                     </a>
                 </li>
                 <li class="nav-item">
@@ -73,12 +100,12 @@
         </nav>
 
         <main class="main-content">
-            <div id="1" class="member-profile">
+            <div id="member-1" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Adif_Ifani_Hartoyo.jpg" alt="Foto Adif" class="avatar-img">
+                                <img src="assets/img/members/Adif_Ifani_Hartoyo.jpg" alt="Foto Adif Ifani Hartoyo" class="avatar-img">
                             </div>
                             <h3>Adif Ifani Hartoyo</h3>
                             <div class="member-divider"></div>
@@ -91,18 +118,41 @@
                             <div class="detail-item"><label>QUOTES:</label><span>seperti siang dan malam, tak bisa dinilai dari terang atau gelapnya saja</span></div>
                         </div>
                         <div class="qr-section">
-                            <div class="qr-code"><img src="assets/qr/adip lagi.png" alt="QR Code" class="qr-image"></div>
+                            <div class="qr-code"><img src="assets/qr/adip_lagi.png" alt="QR Code Adif Ifani Hartoyo" class="qr-image"></div>
                             <a href="members.html"><button class="complete-btn">Other Members</button></a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="3" class="member-profile">
+            <div id="member-2" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
-                            <div class="member-avatar"><img src="assets/img/members/Alfatihaharavah.jpeg" alt="Foto Alfatihaharavah" class="avatar-img"></div>
+                            <div class="member-avatar"><img src="assets/img/members/Ahmad Najib S..jpeg" alt="Foto Ahmad Najib S." class="avatar-img"></div>
+                            <h3>Ahmad Najib S.</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item"><label>NAMA:</label><span>Ahmad Najib S.</span></div>
+                            <div class="detail-item"><label>NPM:</label><span>24783070</span></div>
+                            <div class="detail-item"><label>JURUSAN:</label><span>Teknologi Informasi</span></div>
+                            <div class="detail-item"><label>PRODI:</label><span>Teknologi Rekayasa Perangkat Lunak</span></div>
+                            <div class="detail-item"><label>QUOTES:</label><span>AGAR TIDAK DIMANFAATKAN ORANG LAIN, MAKA JADILAH TIDAK BERMANFAAT</span></div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code"><img src="assets/qr/ahmad najib.png" alt="QR Code Ahmad Najib S." class="qr-image"></div>
+                            <a href="members.html"><button class="complete-btn">Other Members</button></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="member-3" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar"><img src="assets/img/members/Alfatihaharavah.jpeg" alt="Foto Alfatiharavah Qisty" class="avatar-img"></div>
                             <h3>Alfatiharavah Qisty</h3>
                             <div class="member-divider"></div>
                         </div>
@@ -114,18 +164,18 @@
                             <div class="detail-item"><label>QUOTES:</label><span>Kebanyakan kegagalan berasal dari takut gagal</span></div>
                         </div>
                         <div class="qr-section">
-                            <div class="qr-code"><img src="assets/qr/alfatihah.png" alt="QR Code" class="qr-image"></div>
+                            <div class="qr-code"><img src="assets/qr/alfatihah.png" alt="QR Code Alfatiharavah Qisty" class="qr-image"></div>
                             <a href="members.html"><button class="complete-btn">Other Members</button></a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="4" class="member-profile">
+            <div id="member-4" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
-                            <div class="member-avatar"><img src="assets/img/members/Andika_Sandi_Pranata.jpg" alt="Foto Andika" class="avatar-img"></div>
+                            <div class="member-avatar"><img src="assets/img/members/Andika_Sandi_Pranata.jpg" alt="Foto Andika Sandi Pranata" class="avatar-img"></div>
                             <h3>Andika Sandi Pranata</h3>
                             <div class="member-divider"></div>
                         </div>
@@ -137,19 +187,19 @@
                             <div class="detail-item"><label>QUOTES:</label><span>You can be anything you want</span></div>
                         </div>
                         <div class="qr-section">
-                            <div class="qr-code"><img src="assets/qr/andika.jpg" alt="QR Code" class="qr-image"></div>
+                            <div class="qr-code"><img src="assets/qr/andika.jpg" alt="QR Code Andika Sandi Pranata" class="qr-image"></div>
                             <a href="members.html"><button class="complete-btn">Other Members</button></a>
                         </div>
                     </div>
                 </div>
             </div>
 
-            <div id="5" class="member-profile">
+            <div id="member-5" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Bangun_Gilang.png" alt="Foto Gilang" class="avatar-img">
+                                <img src="assets/img/members/Bangun_Gilang.png" alt="Foto Bangun Gilang Saputra Dolok Saribu" class="avatar-img">
                             </div>
                             <h3>Bangun Gilang Saputra Dolok Saribu</h3>
                             <div class="member-divider"></div>
@@ -178,7 +228,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/Bangun.jpg" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/Bangun.jpg" alt="QR Code Bangun Gilang Saputra Dolok Saribu" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -187,12 +237,13 @@
                     </div>
                 </div>
             </div>
-             <div id="6" class="member-profile">
+
+            <div id="member-6" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Dede_Aprizal.jpeg" alt="Foto Dede" class="avatar-img">
+                                <img src="assets/img/members/Dede_Aprizal.jpeg" alt="Foto Dede Aprizal" class="avatar-img">
                             </div>
                             <h3>Dede Aprizal</h3>
                             <div class="member-divider"></div>
@@ -221,7 +272,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/Dede.jpg" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/Dede.jpg" alt="QR Code Dede Aprizal" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -230,12 +281,13 @@
                     </div>
                 </div>
             </div>
-             <div id="7" class="member-profile">
+
+            <div id="member-7" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Donatus_Gitsco_Paolo_Aswin .jpg" alt="Foto Donatus" class="avatar-img">
+                                <img src="assets/img/members/Donatus_Gitsco_Paolo_Aswin .jpg" alt="Foto Donatus Gitsco Paolo Aswin" class="avatar-img">
                             </div>
                             <h3>Donatus Gitsco Paolo Aswin</h3>
                             <div class="member-divider"></div>
@@ -264,7 +316,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/Donatus.jpg" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/Donatus.jpg" alt="QR Code Donatus Gitsco Paolo Aswin" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -273,12 +325,13 @@
                     </div>
                 </div>
             </div>
-             <div id="8" class="member-profile">
+
+            <div id="member-8" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Faqih_Abdurrohman.jpg" alt="Foto Faqih" class="avatar-img">
+                                <img src="assets/img/members/Faqih_Abdurrohman.jpg" alt="Foto Faqih Abdurrohman" class="avatar-img">
                             </div>
                             <h3>Faqih Abdurrohman</h3>
                             <div class="member-divider"></div>
@@ -307,7 +360,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/Faqih.jpg" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/Faqih.jpg" alt="QR Code Faqih Abdurrohman" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -316,12 +369,13 @@
                     </div>
                 </div>
             </div>
-             <div id="9" class="member-profile">
+
+            <div id="member-9" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Feri_Setiawan.jpeg" alt="Foto Feri" class="avatar-img">
+                                <img src="assets/img/members/Feri_Setiawan.jpeg" alt="Foto Feri Setiawan" class="avatar-img">
                             </div>
                             <h3>Feri Setiawan</h3>
                             <div class="member-divider"></div>
@@ -350,7 +404,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/feri.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/feri.png" alt="QR Code Feri Setiawan" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -359,12 +413,13 @@
                     </div>
                 </div>
             </div>
-             <div id="10" class="member-profile">
+
+            <div id="member-10" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Hendi_Firmansah.jpg" alt="Foto Hendi" class="avatar-img">
+                                <img src="assets/img/members/Hendi_Firmansah.jpg" alt="Foto Hendi Firmansah" class="avatar-img">
                             </div>
                             <h3>Hendi Firmansah</h3>
                             <div class="member-divider"></div>
@@ -393,7 +448,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/Hendi.jpg" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/Hendi.jpg" alt="QR Code Hendi Firmansah" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -402,12 +457,13 @@
                     </div>
                 </div>
             </div>
-             <div id="11" class="member-profile">
+
+            <div id="member-11" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/I_Komang_Ari_Wijaya_Saputra .JPG" alt="Foto Komang" class="avatar-img">
+                                <img src="assets/img/members/I_Komang_Ari_Wijaya_Saputra.JPG" alt="Foto I Komang Ari Wijaya Saputra" class="avatar-img">
                             </div>
                             <h3>I Komang Ari Wijaya Saputra</h3>
                             <div class="member-divider"></div>
@@ -436,7 +492,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/ikomang.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/ikomang.png" alt="QR Code I Komang Ari Wijaya Saputra" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -445,20 +501,65 @@
                     </div>
                 </div>
             </div>
-             <div id="13" class="member-profile">
+            
+            <div id="member-12" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Liyana_syafiqa.webp" alt="Foto Liyana_syafiqa" class="avatar-img">
+                                <img src="assets/img/members/JuanAditioKurniawan.jpeg" alt="Foto Juan Aditio Kurniawan" class="avatar-img">
                             </div>
-                            <h3>Liyana syafiqa</h3>
+                            <h3>Juan Aditio Kurniawan</h3>
                             <div class="member-divider"></div>
                         </div>
                         <div class="member-details">
                             <div class="detail-item">
                                 <label>NAMA:</label>
-                                <span>Liyana syafiqa</span>
+                                <span>Juan Aditio Kurniawan</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>NPM:</label>
+                                <span>24783081</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>JURUSAN:</label>
+                                <span>Teknologi Informasi</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>PRODI:</label>
+                                <span>Teknologi Rekayasa Perangkat Lunak</span>
+                            </div>
+                            <div class="detail-item">
+                                <label>QUOTES:</label>
+                                <span>"Hargai setiap proses, karena setiap langkah adalah pembelajaran."</span>
+                            </div>
+                        </div>
+                        <div class="qr-section">
+                            <div class="qr-code">
+                                <img src="assets/qr/Juan.png" alt="QR Code Juan Aditio Kurniawan" class="qr-image">
+                            </div>
+                            <a href="members.html">
+                                <button class="complete-btn">Other Members</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="member-13" class="member-profile">
+                <div class="profile-container">
+                    <div class="member-info-card">
+                        <div class="member-header">
+                            <div class="member-avatar">
+                                <img src="assets/img/members/Liyana_syafiqa.webp" alt="Foto Liyana Syafiqa" class="avatar-img">
+                            </div>
+                            <h3>Liyana Syafiqa</h3>
+                            <div class="member-divider"></div>
+                        </div>
+                        <div class="member-details">
+                            <div class="detail-item">
+                                <label>NAMA:</label>
+                                <span>Liyana Syafiqa</span>
                             </div>
                             <div class="detail-item">
                                 <label>NPM:</label>
@@ -479,7 +580,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/Liyana.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/Liyana.png" alt="QR Code Liyana Syafiqa" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -488,20 +589,21 @@
                     </div>
                 </div>
             </div>
-             <div id="14" class="member-profile">
+
+            <div id="member-14" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/M_Maheza_Raisuli.jpg" alt="Foto Maheza" class="avatar-img">
+                                <img src="assets/img/members/M_Maheza_Raisuli.jpg" alt="Foto M. Maheza Raisuli" class="avatar-img">
                             </div>
-                            <h3>M.Maheza Raisuli</h3>
+                            <h3>M. Maheza Raisuli</h3>
                             <div class="member-divider"></div>
                         </div>
                         <div class="member-details">
                             <div class="detail-item">
                                 <label>NAMA:</label>
-                                <span>M.Maheza Raisuli</span>
+                                <span>M. Maheza Raisuli</span>
                             </div>
                             <div class="detail-item">
                                 <label>NPM:</label>
@@ -522,7 +624,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/Maheza.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/Maheza.png" alt="QR Code M. Maheza Raisuli" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -531,12 +633,13 @@
                     </div>
                 </div>
             </div>
-             <div id="15" class="member-profile">
+
+            <div id="member-15" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Maharani_Najla_Azzahra.jpg" alt="Foto Maharani" class="avatar-img">
+                                <img src="assets/img/members/Maharani_Najla_Azzahra.jpg" alt="Foto Maharani Najla Azzahra" class="avatar-img">
                             </div>
                             <h3>Maharani Najla Azzahra</h3>
                             <div class="member-divider"></div>
@@ -565,7 +668,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/Maharani.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/Maharani.png" alt="QR Code Maharani Najla Azzahra" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -574,12 +677,13 @@
                     </div>
                 </div>
             </div>
-             <div id="16" class="member-profile">
+
+            <div id="member-16" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Marshal_Frans_Faith_Wolf.jpg" alt="Foto Marshal" class="avatar-img">
+                                <img src="assets/img/members/Marshal_Frans_Faith_Wolf.jpg" alt="Foto Marshal Frans Faith Wolf" class="avatar-img">
                             </div>
                             <h3>Marshal Frans Faith Wolf</h3>
                             <div class="member-divider"></div>
@@ -608,8 +712,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="qr/" alt="QR Code" class="qr-image">
-                            </div>
+                                <img src="assets/qr/placeholder_qr.png" alt="QR Code Marshal Frans Faith Wolf" class="qr-image"> </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
                             </a>
@@ -617,12 +720,13 @@
                     </div>
                 </div>
             </div>
-             <div id="17" class="member-profile">
+
+            <div id="member-17" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/M_Jibril_Alghifari.jpg" alt="Foto Jibril" class="avatar-img">
+                                <img src="assets/img/members/M_Jibril_Alghifari.jpg" alt="Foto Muhammad Jibril Al Ghifari" class="avatar-img">
                             </div>
                             <h3>Muhammad Jibril Al Ghifari</h3>
                             <div class="member-divider"></div>
@@ -651,7 +755,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/M jibril.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/M_jibril.png" alt="QR Code Muhammad Jibril Al Ghifari" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -660,12 +764,13 @@
                     </div>
                 </div>
             </div>
-             <div id="18" class="member-profile">
+
+            <div id="member-18" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Muhammad_Fahry_Arief_Billah.jpg" alt="Foto Fahry" class="avatar-img">
+                                <img src="assets/img/members/Muhammad_Fahry_Arief_Billah.jpg" alt="Foto Muhammad Fahry Arief Billah" class="avatar-img">
                             </div>
                             <h3>Muhammad Fahry Arief Billah</h3>
                             <div class="member-divider"></div>
@@ -694,7 +799,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/fahry.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/fahry.png" alt="QR Code Muhammad Fahry Arief Billah" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -703,12 +808,13 @@
                     </div>
                 </div>
             </div>
-             <div id="19" class="member-profile">
+
+            <div id="member-19" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/M_Kelvin_Azzufar.jpeg" alt="Foto kelpin" class="avatar-img">
+                                <img src="assets/img/members/M_Kelvin_Azzufar.jpeg" alt="Foto Muhammad Kelvin Azzufar" class="avatar-img">
                             </div>
                             <h3>Muhammad Kelvin Azzufar</h3>
                             <div class="member-divider"></div>
@@ -732,12 +838,12 @@
                             </div>
                             <div class="detail-item">
                                 <label>QUOTES:</label>
-                                <span>I been in the hills f*cking superstar feeling like a popstar  21 21  </span>
+                                <span>I been in the hills f*cking superstar feeling like a popstar 21 21</span>
                             </div>
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/M kelpin.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/M_kelpin.png" alt="QR Code Muhammad Kelvin Azzufar" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -746,12 +852,13 @@
                     </div>
                 </div>
             </div>
-             <div id="20" class="member-profile">
+
+            <div id="member-20" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/M_Taaudz_Syahti_Ismail.jpg" alt="Foto taut" class="avatar-img">
+                                <img src="assets/img/members/M_Taaudz_Syahti_Ismail.jpg" alt="Foto Muhammad Taaudz Syahti Ismail" class="avatar-img">
                             </div>
                             <h3>Muhammad Taaudz Syahti Ismail</h3>
                             <div class="member-divider"></div>
@@ -780,7 +887,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/M taut.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/M_taut.png" alt="QR Code Muhammad Taaudz Syahti Ismail" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -789,12 +896,13 @@
                     </div>
                 </div>
             </div>
-             <div id="21" class="member-profile">
+
+            <div id="member-21" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/IMG_2043.JPEG" alt="Foto Nabilah" class="avatar-img">
+                                <img src="assets/img/members/Nabilah_Titta_Ridya.jpeg" alt="Foto Nabilah Titta Ridya" class="avatar-img">
                             </div>
                             <h3>Nabilah Titta Ridya</h3>
                             <div class="member-divider"></div>
@@ -823,7 +931,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/Nabila.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/Nabila.png" alt="QR Code Nabilah Titta Ridya" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -832,12 +940,13 @@
                     </div>
                 </div>
             </div>
-             <div id="22" class="member-profile">
+
+            <div id="member-22" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/IMG_5411.jpg" alt="Foto Naufal_Arief_Rahman" class="avatar-img">
+                                <img src="assets/img/members/IMG_5411.jpg" alt="Foto Naufal Arief Rahman" class="avatar-img">
                             </div>
                             <h3>Naufal Arief Rahman</h3>
                             <div class="member-divider"></div>
@@ -866,7 +975,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/img/naufal.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/nopal.jpg" alt="QR Code Naufal Arief Rahman" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -875,12 +984,13 @@
                     </div>
                 </div>
             </div>
-             <div id="23" class="member-profile">
+
+            <div id="member-23" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Nova_Ade_Irma_Lestari.jpg" alt="Foto nopa" class="avatar-img">
+                                <img src="assets/img/members/Nova_Ade_Irma_Lestari.jpg" alt="Foto Nova Ade Irma Lestari" class="avatar-img">
                             </div>
                             <h3>Nova Ade Irma Lestari</h3>
                             <div class="member-divider"></div>
@@ -909,7 +1019,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/nova.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/nova.png" alt="QR Code Nova Ade Irma Lestari" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -918,7 +1028,8 @@
                     </div>
                 </div>
             </div>
-             <div id="24" class="member-profile">
+
+            <div id="member-24" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
@@ -952,7 +1063,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/Okta.jpg" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/Okta.jpg" alt="QR Code Oktaviana" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -961,12 +1072,13 @@
                     </div>
                 </div>
             </div>
-             <div id="25" class="member-profile">
+
+            <div id="member-25" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Raditya_Ramadhani.jpeg" alt="Foto radit" class="avatar-img">
+                                <img src="assets/img/members/Raditya_Ramadhani.jpeg" alt="Foto Raditya Ramadhani" class="avatar-img">
                             </div>
                             <h3>Raditya Ramadhani</h3>
                             <div class="member-divider"></div>
@@ -995,7 +1107,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/radit.png" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/radit.png" alt="QR Code Raditya Ramadhani" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -1004,12 +1116,13 @@
                     </div>
                 </div>
             </div>
-             <div id="26" class="member-profile">
+
+            <div id="member-26" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Rafles_Arfatora.jpg" alt="Foto rafles" class="avatar-img">
+                                <img src="assets/img/members/Rafles_Arfatora.jpg" alt="Foto Rafles Arfatora" class="avatar-img">
                             </div>
                             <h3>Rafles Arfatora</h3>
                             <div class="member-divider"></div>
@@ -1038,7 +1151,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/rafles.jpg" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/rafles.jpg" alt="QR Code Rafles Arfatora" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -1047,12 +1160,13 @@
                     </div>
                 </div>
             </div>
-             <div id="27" class="member-profile">
+
+            <div id="member-27" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Raihan_Nafis_Murtadha.jpg" alt="Foto Raihan" class="avatar-img">
+                                <img src="assets/img/members/Raihan_Nafis_Murtadha.jpg" alt="Foto Raihan Nafis Murtadha" class="avatar-img">
                             </div>
                             <h3>Raihan Nafis Murtadha</h3>
                             <div class="member-divider"></div>
@@ -1081,8 +1195,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="qr/" alt="QR Code" class="qr-image">
-                            </div>
+                                <img src="assets/qr/nopal.jpg" alt="QR Code Raihan Nafis Murtadha" class="qr-image"> </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
                             </a>
@@ -1090,12 +1203,13 @@
                     </div>
                 </div>
             </div>
-             <div id="28" class="member-profile">
+
+            <div id="member-28" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Rifqy_Aditya_Elfateh.jpg" alt="Foto rifqy" class="avatar-img">
+                                <img src="assets/img/members/Rifqy_Aditya_Elfateh.jpg" alt="Foto Rifqy Aditya Elfateh" class="avatar-img">
                             </div>
                             <h3>Rifqy Aditya Elfateh</h3>
                             <div class="member-divider"></div>
@@ -1124,7 +1238,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/rifqy.jpg" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/rifqy.jpg" alt="QR Code Rifqy Aditya Elfateh" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -1133,12 +1247,13 @@
                     </div>
                 </div>
             </div>
-             <div id="29" class="member-profile">
+
+            <div id="member-29" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Saddam_Rexa_Yaumi_Arfah .jpg" alt="Foto sadam" class="avatar-img">
+                                <img src="assets/img/members/Saddam_Rexa_Yaumi_Arfah .jpg" alt="Foto Saddam Rexa Yaumi Arfah" class="avatar-img">
                             </div>
                             <h3>Saddam Rexa Yaumi Arfah</h3>
                             <div class="member-divider"></div>
@@ -1167,7 +1282,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/sadam.jpg" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/sadam.jpg" alt="QR Code Saddam Rexa Yaumi Arfah" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -1176,12 +1291,13 @@
                     </div>
                 </div>
             </div>
-             <div id="30" class="member-profile">
+
+            <div id="member-30" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Siti_Aulia_Adzani.jpeg" alt="Foto siti" class="avatar-img">
+                                <img src="assets/img/members/Siti_Aulia_Adzani.jpeg" alt="Foto Siti Aulia Adzani" class="avatar-img">
                             </div>
                             <h3>Siti Aulia Adzani</h3>
                             <div class="member-divider"></div>
@@ -1210,7 +1326,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/siti aulia.jpg" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/siti_aulia.jpg" alt="QR Code Siti Aulia Adzani" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -1219,12 +1335,13 @@
                     </div>
                 </div>
             </div>
-             <div id="31" class="member-profile">
+
+            <div id="member-31" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Thalitha_putri.jpg" alt="Foto Talitha" class="avatar-img">
+                                <img src="assets/img/members/Thalitha_putri.jpg" alt="Foto Talitha Putri Hernisa Dewi" class="avatar-img">
                             </div>
                             <h3>Talitha Putri Hernisa Dewi</h3>
                             <div class="member-divider"></div>
@@ -1248,13 +1365,12 @@
                             </div>
                             <div class="detail-item">
                                 <label>QUOTES:</label>
-                                <span>"I can still make the whole place shimmer."
-                                    — Bejeweled</span>
+                                <span>"I can still make the whole place shimmer." — Bejeweled</span>
                             </div>
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/qr/Talita.jpg" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/Talita.jpg" alt="QR Code Talitha Putri Hernisa Dewi" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -1263,20 +1379,21 @@
                     </div>
                 </div>
             </div>
-            <div id="32" class="member-profile">
+
+            <div id="member-32" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/Wati_Puspitasari.jpg" alt="WATI" class="avatar-img">
+                                <img src="assets/img/members/Wati_Puspitasari.jpg" alt="Foto Wati Puspita Sari" class="avatar-img">
                             </div>
-                            <h3>WATI PUSPITA SARI</h3>
+                            <h3>Wati Puspita Sari</h3>
                             <div class="member-divider"></div>
                         </div>
                         <div class="member-details">
                             <div class="detail-item">
                                 <label>NAMA:</label>
-                                <span>WATI PUSPITA SARI</span>
+                                <span>Wati Puspita Sari</span>
                             </div>
                             <div class="detail-item">
                                 <label>NPM:</label>
@@ -1297,8 +1414,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="qr/" alt="QR Code" class="qr-image">
-                            </div>
+                                <img src="assets/qr/nopal.jpg" alt="QR Code Wati Puspita Sari" class="qr-image"> </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
                             </a>
@@ -1306,12 +1422,13 @@
                     </div>
                 </div>
             </div>
-             <div id="33" class="member-profile">
+
+            <div id="member-33" class="member-profile">
                 <div class="profile-container">
                     <div class="member-info-card">
                         <div class="member-header">
                             <div class="member-avatar">
-                                <img src="assets/img/members/ys.jpeg" alt="Yunanda" class="avatar-img">
+                                <img src="assets/img/members/ys.jpeg" alt="Foto Yunanda Sabrina" class="avatar-img">
                             </div>
                             <h3>Yunanda Sabrina</h3>
                             <div class="member-divider"></div>
@@ -1340,7 +1457,7 @@
                         </div>
                         <div class="qr-section">
                             <div class="qr-code">
-                                <img src="assets/img/members/WhatsApp Image 2025-05-30 at 7.11.43 PM.jpeg" alt="QR Code" class="qr-image">
+                                <img src="assets/qr/WhatsApp_Image_2025-05-30_at_7.11.43_PM.jpeg" alt="QR Code Yunanda Sabrina" class="qr-image">
                             </div>
                             <a href="members.html">
                                 <button class="complete-btn">Other Members</button>
@@ -1360,7 +1477,7 @@
                     profile.style.display = 'none';
                 });
 
-                // Dapatkan ID dari URL hash (misalnya: #1)
+                // Dapatkan ID dari URL hash (misalnya: #member-1)
                 const profileId = window.location.hash.substring(1);
 
                 // Jika ada ID di URL, tampilkan profil yang sesuai
@@ -1368,6 +1485,12 @@
                     const profileToShow = document.getElementById(profileId);
                     if (profileToShow) {
                         profileToShow.style.display = 'block';
+                    }
+                } else {
+                    // Opsional: Tampilkan profil pertama jika tidak ada hash
+                    const firstProfile = document.querySelector('.member-profile');
+                    if (firstProfile) {
+                        firstProfile.style.display = 'block';
                     }
                 }
             }
