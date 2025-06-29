@@ -10,6 +10,7 @@ body {
     color: white;
     min-height: 100vh;
     overflow-x: hidden;
+    font-size: 16px; /* Base font size for accessibility*/
 }
 
 /* Animated stars background */
@@ -33,7 +34,7 @@ body {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
         radial-gradient(2px 2px at 20px 30px, #eee, transparent),
         radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
         radial-gradient(1px 1px at 90px 40px, #fff, transparent),
@@ -45,7 +46,7 @@ body {
 }
 
 .stars::after {
-    background-image: 
+    background-image:
         radial-gradient(1px 1px at 40px 60px, #fff, transparent),
         radial-gradient(1px 1px at 80px 10px, rgba(255,255,255,0.9), transparent),
         radial-gradient(2px 2px at 120px 50px, #eee, transparent);
@@ -58,7 +59,6 @@ body {
     to { transform: translateX(-200px); }
 }
 
-
 .container {
     display: flex;
     min-height: 100vh;
@@ -68,15 +68,15 @@ body {
 
 /* Sidebar */
 .sidebar {
-    width: 280px;
+    width: 280px; /* Default desktop width*/
     background: rgba(20, 25, 45, 0.95);
     backdrop-filter: blur(10px);
     padding: 2rem;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
-    transition: all 0.3s ease;
-    position: fixed; /* Keep sidebar fixed */
-    height: 100vh; /* Full height */
-    overflow-y: auto; /* Allow scrolling for many nav items */
+    transition: width 0.3s ease, padding 0.3s ease; /* Smooth transition*/
+    position: fixed; /* Keep sidebar fixed*/
+    height: 100vh; /* Full height*/
+    overflow-y: auto; /* Allow scrolling for many nav items*/
 }
 
 .logo {
@@ -84,7 +84,7 @@ body {
     align-items: center;
     gap: 1rem;
     margin-bottom: 3rem;
-    font-size: 1.8rem;
+    font-size: 1.8rem; /* Use rem*/
     font-weight: bold;
 }
 
@@ -92,7 +92,6 @@ body {
     height: 100%;
     object-fit: contain;
 }
-
 
 .logo-icon {
     width: 40px;
@@ -125,6 +124,7 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    font-size: 1rem; /* Use rem for better accessibility*/
 }
 
 .nav-link:hover {
@@ -142,15 +142,16 @@ body {
     width: 20px;
     height: 20px;
     fill: currentColor;
+    min-width: 20px; /* Ensure icon doesn't shrink*/
 }
-
 
 /* ===== Achievements Page ===== */
 .main-content {
     flex: 1;
     padding: 2rem;
     background: rgba(10, 14, 39, 0.3);
-    margin-left: 280px; /* Adjust margin to account for fixed sidebar */
+    margin-left: 280px; /* Adjust margin to account for fixed sidebar*/
+    transition: margin-left 0.3s ease, padding 0.3s ease; /* Smooth transition*/
 }
 
 .header {
@@ -164,7 +165,7 @@ body {
 }
 
 .header h1 {
-    font-size: 3rem;
+    font-size: 3rem; /* Use rem*/
     margin-bottom: 1rem;
     background: linear-gradient(45deg, #667eea, #764ba2);
     -webkit-background-clip: text;
@@ -173,87 +174,21 @@ body {
 }
 
 .header p {
-    font-size: 1.2rem;
+    font-size: 1.2rem; /* Use rem*/
     opacity: 0.8;
     font-style: italic;
 }
 
 /* Grid Gallery untuk Achievements - Improved Layout */
-
 .gallery {
     display: grid;
     /* Menampilkan 3 kolom dengan ukuran yang sama, minmax untuk responsivitas */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    grid-auto-rows: 300px; /* Set fixed row height for all items */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Flexible columns*/
+    grid-auto-rows: 300px; /* Set fixed row height for all items*/
     gap: 1.5rem;
     max-width: 1200px;
     margin: 0 auto;
     justify-content: center;
-}
-
-/* ... (kode CSS yang sudah ada) ... */
-
-/* Responsive tweaks */
-@media (max-width: 768px) {
-    /* ... (kode CSS yang sudah ada) ... */
-
-    .gallery {
-        /* Pada layar tablet, bisa tetap 2 kolom atau disesuaikan */
-        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); 
-        gap: 1rem;
-    }
-
-    /* ... (kode CSS yang sudah ada) ... */
-}
-
-@media (max-width: 480px) {
-    /* ... (kode CSS yang sudah ada) ... */
-    .gallery {
-        grid-template-columns: 1fr; /* Single column on small screens */
-        gap: 1rem;
-    }
-    /* ... (kode CSS yang sudah ada) ... */
-}
-
-/* Styles for the Modal/Lightbox */
-.modal {
-    display: none; /* Hidden by default */
-    position: fixed; /* Stay in place */
-    z-index: 1000; /* Sit on top */
-    left: 0;
-    top: 0;
-    width: 100%; /* Full width */
-    height: 100%; /* Full height */
-    overflow: auto; /* Enable scroll if needed */
-    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
-    align-items: center;
-    justify-content: center;
-}
-
-.modal-content {
-    margin: auto;
-    display: block;
-    max-width: 90%;
-    max-height: 90%;
-    object-fit: contain; /* Ensure the image fits within the modal */
-}
-
-.close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #fff;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-    cursor: pointer;
-}
-
-.close:hover,
-.close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
 }
 
 .gallery-item {
@@ -265,13 +200,14 @@ body {
     background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255, 255, 255, 0.1);
-    display: flex; /* Use flex to align image/overlay within */
+    display: flex; /* Use flex to align image/overlay within*/
     flex-direction: column;
+    width: 100%; /* Ensure it fills its grid cell */
 }
 
 .gallery-item img {
     width: 100%;
-    height: 100%; /* Take full height of its container */
+    height: 100%; /* Take full height of its container*/
     object-fit: cover;
     transition: all 0.3s ease;
 }
@@ -294,83 +230,175 @@ body {
     background: linear-gradient(to top, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.6));
     color: white;
     font-weight: bold;
-    font-size: 1.1rem;
+    font-size: 1.1rem; /* Use rem*/
     text-align: center;
     opacity: 0;
     transition: all 0.3s ease;
-    display: flex; /* Use flex to center text vertically */
+    display: flex; /* Use flex to center text vertically*/
     align-items: center;
     justify-content: center;
-    min-height: 80px; /* Ensure a minimum height for the overlay */
+    min-height: 80px; /* Ensure a minimum height for the overlay*/
 }
 
 .gallery-item:hover .gallery-overlay {
     opacity: 1;
 }
 
-/* Specific styling for varying heights (e.g., for a "masonry" effect) */
-/* Dihapus/dinonaktifkan untuk membuat semua ukuran sama */
-/*
-.gallery-item:nth-child(even) {
-    grid-row: span 2;
+/* Styles for the Modal/Lightbox */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1000; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+    align-items: center;
+    justify-content: center;
+    overflow: auto; /* Enable scroll if needed */
 }
 
-.gallery-item:nth-child(3n) {
-    grid-column: span 1;
-    grid-row: span 1;
+.modal-content {
+    margin: auto;
+    display: block;
+    max-width: 90%;
+    max-height: 90%;
+    object-fit: contain; /* Ensure the image fits within the modal */
+    border-radius: 15px;
 }
 
-.gallery-item:nth-child(5n) {
-    grid-row: span 3;
+.close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #fff;
+    font-size: 2rem; /* Use rem*/
+    font-weight: bold;
+    transition: 0.3s;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.2);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
-*/
 
+.close:hover,
+.close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+}
 
 /* Responsive tweaks */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 70px; /* Collapsed sidebar */
-        padding: 1rem 0.5rem;
+    .container {
+        flex-direction: column; /* Stack sidebar and main content vertically*/
     }
 
-    .logo span,
+    .sidebar {
+        width: 100%; /* Full width sidebar on mobile*/
+        height: auto; /* Auto height to fit content*/
+        position: relative; /* No longer fixed, flows with content*/
+        padding: 1rem;
+        border-right: none; /* Remove right border*/
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add bottom border*/
+    }
+
+    .sidebar .logo {
+        justify-content: center; /* Center logo*/
+        margin-bottom: 1rem;
+    }
+
+    .nav-menu {
+        display: flex; /* Arrange nav items in a row*/
+        flex-wrap: wrap; /* Allow items to wrap*/
+        justify-content: center; /* Center nav items*/
+        gap: 0.5rem; /* Smaller gap between items*/
+    }
+
+    .nav-item {
+        margin-bottom: 0; /* Remove bottom margin*/
+    }
+
+    .nav-link {
+        flex-direction: column; /* Stack icon and text*/
+        gap: 0.2rem; /* Smaller gap*/
+        padding: 0.5rem; /* Smaller padding*/
+        font-size: 0.75rem; /* Smaller font size for nav text*/
+        text-align: center;
+    }
+
     .nav-link span {
-        display: none; /* Hide text in collapsed sidebar */
+        display: block; /* Ensure text is visible*/
+        font-size: 0.75rem; /* Explicitly set font size for span*/
+    }
+
+    .nav-icon {
+        width: 18px; /* Smaller icon size*/
+        height: 18px;
+        min-width: 18px;
     }
 
     .main-content {
-        margin-left: 70px; /* Adjust margin for collapsed sidebar */
+        margin-left: 0; /* Adjust margin for collapsed sidebar*/
         padding: 1rem;
     }
 
+    .header {
+        padding: 2rem 1.5rem;
+    }
+
     .header h1 {
-        font-size: 2rem;
+        font-size: 2.2rem; /* Adjust header font size*/
+    }
+
+    .header p {
+        font-size: 1rem; /* Adjust header paragraph font size*/
     }
 
     .gallery {
-        grid-template-columns: 1fr; /* Single column on small screens */
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* More flexible grid for smaller screens*/
         gap: 1rem;
     }
 
     .gallery-item {
-        height: auto; /* Allow height to adjust */
-        grid-row: auto !important; /* Reset row span on small screens */
-        grid-column: auto !important; /* Reset column span on small screens */
-    }
-
-    .gallery-item img {
-        height: 200px; /* Set a default height for images on small screens */
-        object-fit: cover;
+        height: 250px; /* Adjust height for mobile gallery items*/
     }
 
     .gallery-overlay {
-        min-height: 60px; /* Smaller min-height for overlay on small screens */
+        font-size: 0.9rem;
         padding: 0.8rem;
-        font-size: 1rem;
+        min-height: 60px; /* Smaller min-height for overlay on small screens*/
+    }
+
+    .close {
+        font-size: 1.8rem;
+        width: 35px;
+        height: 35px;
+        top: 10px;
+        right: 10px;
     }
 }
 
 @media (max-width: 480px) {
+    .nav-menu {
+        gap: 0.2rem;
+    }
+    .nav-link {
+        padding: 0.3rem;
+        font-size: 0.7rem;
+    }
+    .nav-icon {
+        width: 16px;
+        height: 16px;
+        min-width: 16px;
+    }
     .header {
         padding: 2rem 1rem;
     }
@@ -379,5 +407,15 @@ body {
     }
     .header p {
         font-size: 1rem;
+    }
+    .gallery {
+        grid-template-columns: 1fr; /* Single column on very small screens*/
+    }
+    .gallery-item {
+        height: 200px; /* Even smaller height for gallery items*/
+    }
+    .gallery-overlay {
+        font-size: 0.8rem;
+        padding: 0.5rem;
     }
 }
