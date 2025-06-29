@@ -66,7 +66,7 @@ body {
     z-index: 1;
 }
 
-/* Sidebar */
+/* Sidebar Styles - Default for Desktop */
 .sidebar {
     width: 280px; /* Default desktop width*/
     background: rgba(20, 25, 45, 0.95);
@@ -74,8 +74,8 @@ body {
     padding: 2rem;
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     transition: width 0.3s ease, padding 0.3s ease; /* Smooth transition*/
-    position: fixed; /* Keep sidebar fixed*/
-    height: 100vh; /* Full height*/
+    position: fixed; /* Keep sidebar fixed on desktop*/
+    height: 100vh; /* Full height on desktop*/
     overflow-y: auto; /* Allow scrolling for many nav items*/
 }
 
@@ -145,12 +145,12 @@ body {
     min-width: 20px; /* Ensure icon doesn't shrink*/
 }
 
-/* ===== Achievements Page ===== */
+/* ===== Achievements Page - Main Content ===== */
 .main-content {
     flex: 1;
     padding: 2rem;
     background: rgba(10, 14, 39, 0.3);
-    margin-left: 280px; /* Adjust margin to account for fixed sidebar*/
+    margin-left: 280px; /* Adjust margin to account for fixed sidebar on desktop*/
     transition: margin-left 0.3s ease, padding 0.3s ease; /* Smooth transition*/
 }
 
@@ -179,11 +179,10 @@ body {
     font-style: italic;
 }
 
-/* Grid Gallery untuk Achievements - Improved Layout */
+/* Grid Gallery untuk Achievements */
 .gallery {
     display: grid;
-    /* Menampilkan 3 kolom dengan ukuran yang sama, minmax untuk responsivitas */
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Flexible columns*/
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Flexible columns on desktop*/
     grid-auto-rows: 300px; /* Set fixed row height for all items*/
     gap: 1.5rem;
     max-width: 1200px;
@@ -295,58 +294,58 @@ body {
     transform: scale(1.1);
 }
 
-/* Responsive tweaks */
+/* Responsive tweaks for mobile */
 @media (max-width: 768px) {
     .container {
-        flex-direction: column; /* Stack sidebar and main content vertically*/
+        flex-direction: column; /* Stacks sidebar and main content vertically on smaller screens */
     }
 
     .sidebar {
-        width: 100%; /* Full width sidebar on mobile*/
-        height: auto; /* Auto height to fit content*/
-        position: relative; /* No longer fixed, flows with content*/
+        width: 100%; /* Full width sidebar on mobile */
+        height: auto; /* Height adjusts to content on mobile (not fixed 100vh) */
+        position: relative; /* Sidebar flows with document, not fixed on mobile */
         padding: 1rem;
-        border-right: none; /* Remove right border*/
-        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add bottom border*/
+        border-right: none; /* No right border on mobile */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add bottom border to separate from main content */
     }
 
     .sidebar .logo {
-        justify-content: center; /* Center logo*/
+        justify-content: center; /* Centers the logo in the sidebar on mobile */
         margin-bottom: 1rem;
     }
 
     .nav-menu {
-        display: flex; /* Arrange nav items in a row*/
-        flex-wrap: wrap; /* Allow items to wrap*/
-        justify-content: center; /* Center nav items*/
-        gap: 0.5rem; /* Smaller gap between items*/
+        display: flex; /* Makes navigation items horizontal */
+        flex-wrap: wrap; /* Allows items to wrap to next line if space is limited */
+        justify-content: center; /* Centers nav items horizontally */
+        gap: 0.5rem; /* Smaller gap between items */
     }
 
     .nav-item {
-        margin-bottom: 0; /* Remove bottom margin*/
+        margin-bottom: 0; /* Removes extra vertical space between nav items */
     }
 
     .nav-link {
-        flex-direction: column; /* Stack icon and text*/
-        gap: 0.2rem; /* Smaller gap*/
-        padding: 0.5rem; /* Smaller padding*/
-        font-size: 0.75rem; /* Smaller font size for nav text*/
+        flex-direction: column; /* Stacks icon and text vertically within each link */
+        gap: 0.2rem; /* Smaller gap between icon and text */
+        padding: 0.5rem; /* Smaller padding for link background */
+        font-size: 0.75rem; /* Smaller font size for nav text */
         text-align: center;
     }
 
     .nav-link span {
-        display: block; /* Ensure text is visible*/
-        font-size: 0.75rem; /* Explicitly set font size for span*/
+        display: block; /* Ensures text takes its own line if needed */
+        font-size: 0.75rem; /* Explicitly set font size for span */
     }
 
     .nav-icon {
-        width: 18px; /* Smaller icon size*/
+        width: 18px; /* Slightly smaller icon size */
         height: 18px;
         min-width: 18px;
     }
 
     .main-content {
-        margin-left: 0; /* Adjust margin for collapsed sidebar*/
+        margin-left: 0; /* Removes left margin, allowing main content to take full width */
         padding: 1rem;
     }
 
@@ -355,26 +354,26 @@ body {
     }
 
     .header h1 {
-        font-size: 2.2rem; /* Adjust header font size*/
+        font-size: 2.2rem; /* Adjust header font size */
     }
 
     .header p {
-        font-size: 1rem; /* Adjust header paragraph font size*/
+        font-size: 1rem; /* Adjust header paragraph font size */
     }
 
     .gallery {
-        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* More flexible grid for smaller screens*/
+        grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); /* More flexible grid for smaller screens */
         gap: 1rem;
     }
 
     .gallery-item {
-        height: 250px; /* Adjust height for mobile gallery items*/
+        height: 250px; /* Adjust height for mobile gallery items */
     }
 
     .gallery-overlay {
         font-size: 0.9rem;
         padding: 0.8rem;
-        min-height: 60px; /* Smaller min-height for overlay on small screens*/
+        min-height: 60px; /* Smaller min-height for overlay on small screens */
     }
 
     .close {
@@ -406,13 +405,13 @@ body {
         font-size: 1.8rem;
     }
     .header p {
-        font-size: 1rem;
+        font-size: 0.9rem;
     }
     .gallery {
-        grid-template-columns: 1fr; /* Single column on very small screens*/
+        grid-template-columns: 1fr; /* Single column on very small screens */
     }
     .gallery-item {
-        height: 200px; /* Even smaller height for gallery items*/
+        height: 200px; /* Even smaller height for gallery items */
     }
     .gallery-overlay {
         font-size: 0.8rem;

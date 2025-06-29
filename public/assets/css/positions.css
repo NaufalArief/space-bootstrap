@@ -10,7 +10,7 @@ body {
     color: white;
     min-height: 100vh;
     overflow-x: hidden;
-    font-size: 16px; /* Base font size for accessibility*/
+    font-size: 16px; /* Base font size for accessibility */
 }
 
 /* Animated stars background */
@@ -218,7 +218,7 @@ body {
 }
 
 .person-name {
-    font-size: 1.5rem; /* Use rem */
+    font-size: 1.2rem; /* Reduced to match mobile-like size for consistency */
     font-weight: bold;
     margin-bottom: 0.8rem;
     color: white;
@@ -237,9 +237,9 @@ body {
 
 .position-item {
     background: rgba(255, 255, 255, 0.08);
-    padding: 0.6rem 1rem;
+    padding: 0.5rem 0.8rem; /* Slightly reduced padding */
     border-radius: 8px;
-    font-size: 0.9rem; /* Use rem */
+    font-size: 0.8rem; /* Reduced to match mobile-like size for consistency */
     color: rgba(255, 255, 255, 0.8);
     transition: background 0.3s ease;
 }
@@ -329,6 +329,7 @@ body {
         height: 120px;
     }
 
+    /* Keep person-name and position-item font sizes consistent with new desktop size */
     .person-name {
         font-size: 1.2rem;
     }
@@ -352,6 +353,9 @@ body {
         height: 16px;
         min-width: 16px;
     }
+    .header {
+        padding: 2rem 1rem;
+    }
     .header h1 {
         font-size: 1.8rem;
     }
@@ -365,11 +369,12 @@ body {
         width: 100px;
         height: 100px;
     }
+    /* Keep person-name and position-item font sizes consistent with new desktop size */
     .person-name {
-        font-size: 1rem;
+        font-size: 1.2rem; /* Remains the same as above */
     }
     .position-item {
-        font-size: 0.7rem;
-        padding: 0.4rem 0.6rem;
+        font-size: 0.8rem; /* Remains the same as above */
+        padding: 0.4rem 0.6rem; /* Slightly adjust padding for very small screens */
     }
 }
