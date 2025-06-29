@@ -6,13 +6,14 @@
 
 body {
     font-family: 'Arial', sans-serif;
-    background: linear-gradient(135deg, #0a0e27 0%, #1a1f3a 50%, #0f1419 100%);
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
     color: white;
     min-height: 100vh;
     overflow-x: hidden;
+    font-size: 16px; /* Base font size for accessibility */
 }
 
-/* Animated Stars Background */
+/* Animated stars background */
 .stars {
     position: fixed;
     top: 0;
@@ -33,7 +34,7 @@ body {
     bottom: 0;
     width: 100%;
     height: 100%;
-    background-image: 
+    background-image:
         radial-gradient(2px 2px at 20px 30px, #eee, transparent),
         radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
         radial-gradient(1px 1px at 90px 40px, #fff, transparent),
@@ -45,7 +46,7 @@ body {
 }
 
 .stars::after {
-    background-image: 
+    background-image:
         radial-gradient(1px 1px at 40px 60px, #fff, transparent),
         radial-gradient(1px 1px at 80px 10px, rgba(255,255,255,0.9), transparent),
         radial-gradient(2px 2px at 120px 50px, #eee, transparent);
@@ -62,19 +63,20 @@ body {
     display: flex;
     min-height: 100vh;
     position: relative;
-    z-index: 2;
+    z-index: 1;
 }
 
 /* Sidebar Styles */
 .sidebar {
-    width: 280px;
+    width: 280px; /* Default desktop width */
     background: rgba(20, 25, 45, 0.95);
     backdrop-filter: blur(10px);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2rem 1rem;
-    position: fixed;
+    position: fixed; /* Fixed for desktop */
     height: 100vh;
     overflow-y: auto;
+    transition: width 0.3s ease, padding 0.3s ease; /* Smooth transition for width/padding */
 }
 
 .logo {
@@ -90,7 +92,6 @@ body {
     height: 100%;
     object-fit: contain;
 }
-
 
 .logo-icon {
     width: 40px;
@@ -123,6 +124,7 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    font-size: 1rem; /* Use rem for better accessibility */
 }
 
 .nav-link:hover {
@@ -140,59 +142,66 @@ body {
     width: 20px;
     height: 20px;
     fill: currentColor;
+    min-width: 20px; /* Ensure icon doesn't shrink */
 }
 
 /* Main Content */
 .main-content {
-    margin-left: 280px;
     flex: 1;
     padding: 2rem;
+    background: rgba(10, 14, 39, 0.3);
+    margin-left: 280px; /* Default desktop margin for fixed sidebar */
+    transition: margin-left 0.3s ease, padding 0.3s ease; /* Smooth transition */
 }
 
 .page-header {
-    margin-bottom: 2rem;
+    text-align: center;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .page-title {
-    font-size: 2.5rem;
-    font-weight: bold;
-    background: linear-gradient(45deg, #667eea 0%, #764ba2 100%);
+    font-size: 3rem; /* Use rem */
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #667eea, #764ba2);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 0.5rem;
-    text-align: center;
-}
-
-.page-subtitle {
-    color: rgba(255, 255, 255, 0.7);
-    font-size: 1.1rem;
 }
 
 /* Members Grid */
 .members-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexible columns */
     gap: 1.5rem;
-    max-width: 1400px;
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
 }
 
 .member-card {
     position: relative;
-    aspect-ratio: 1;
     border-radius: 20px;
     overflow: hidden;
     cursor: pointer;
     transition: all 0.3s ease;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
     backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%; /* Make it responsive within grid cell */
+    height: 300px; /* Fixed height for consistency */
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; /* Align overlay to the bottom */
 }
 
 .member-card:hover {
     transform: translateY(-10px) scale(1.02);
     box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
-    border-color: rgba(102, 126, 234, 0.5);
 }
 
 .member-photo {
@@ -208,13 +217,21 @@ body {
 
 .member-overlay {
     position: absolute;
-    bottom: 0;
+    bottom: 0; /* Position at the bottom */
     left: 0;
     right: 0;
-    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-    padding: 1.5rem 1rem 1rem;
+    padding: 1rem;
+    background: linear-gradient(to top, rgba(102, 126, 234, 0.8), rgba(118, 75, 162, 0.6));
     opacity: 0;
     transition: all 0.3s ease;
+    color: white;
+    font-weight: bold;
+    font-size: 1.1rem; /* Use rem */
+    text-align: center;
+    display: flex;
+    flex-direction: column; /* Stack name and role */
+    justify-content: center;
+    min-height: 80px; /* Ensure minimum height */
 }
 
 .member-card:hover .member-overlay {
@@ -222,53 +239,137 @@ body {
 }
 
 .member-name {
-    font-weight: bold;
-    margin-bottom: 0.25rem;
+    font-size: 1.2rem; /* Use rem */
+    margin-bottom: 0.2rem;
 }
 
 .member-role {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.9rem; /* Use rem */
+    opacity: 0.8;
 }
 
-.empty-slot {
-    background: rgba(255, 255, 255, 0.03);
-    border: 2px dashed rgba(255, 255, 255, 0.2);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: rgba(255, 255, 255, 0.4);
-    font-size: 2rem;
+.member-photo.placeholder-img {
+    object-fit: contain; /* Prevent stretching for placeholder images */
+    background-color: #333; /* Darker background for placeholder */
 }
 
-.empty-slot:hover {
-    background: rgba(255, 255, 255, 0.05);
-    border-color: rgba(102, 126, 234, 0.3);
-}
-
-/* Responsive Design */
+/* Responsive */
 @media (max-width: 768px) {
-    .sidebar {
-        width: 70px;
-        padding: 1rem 0.5rem;
+    .container {
+        flex-direction: column; /* Stack sidebar and main content vertically */
     }
 
-    .logo span,
+    .sidebar {
+        width: 100%; /* Full width sidebar on mobile */
+        height: auto; /* Auto height to fit content */
+        position: relative; /* No longer fixed, flows with content */
+        padding: 1rem;
+        border-right: none; /* Remove right border */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add bottom border */
+    }
+
+    .sidebar .logo {
+        justify-content: center; /* Center logo */
+        margin-bottom: 1rem;
+    }
+
+    .nav-menu {
+        display: flex; /* Arrange nav items in a row */
+        flex-wrap: wrap; /* Allow items to wrap */
+        justify-content: center; /* Center nav items */
+        gap: 0.5rem; /* Smaller gap between items */
+    }
+
+    .nav-item {
+        margin-bottom: 0; /* Remove bottom margin */
+    }
+
+    .nav-link {
+        flex-direction: column; /* Stack icon and text */
+        gap: 0.2rem; /* Smaller gap */
+        padding: 0.5rem; /* Smaller padding */
+        font-size: 0.75rem; /* Smaller font size for nav text */
+        text-align: center;
+    }
+
     .nav-link span {
-        display: none;
+        display: block; /* Ensure text is visible */
+        font-size: 0.75rem; /* Explicitly set font size for span */
+    }
+
+    .nav-icon {
+        width: 18px; /* Smaller icon size */
+        height: 18px;
+        min-width: 18px;
     }
 
     .main-content {
-        margin-left: 70px;
+        margin-left: 0; /* Remove left margin for mobile */
         padding: 1rem;
+        flex-grow: 1;
+    }
+
+    .page-header {
+        padding: 2rem 1.5rem;
     }
 
     .page-title {
-        font-size: 2rem;
+        font-size: 2.2rem; /* Adjust title font size */
     }
 
     .members-grid {
-        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+        grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* More compact grid for tablets/small mobiles */
         gap: 1rem;
+    }
+
+    .member-card {
+        height: 200px; /* Adjust card height for smaller screens */
+    }
+
+    .member-overlay {
+        min-height: 60px;
+        font-size: 0.9rem;
+    }
+
+    .member-name {
+        font-size: 1rem;
+    }
+
+    .member-role {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu {
+        gap: 0.2rem;
+    }
+    .nav-link {
+        padding: 0.3rem;
+        font-size: 0.7rem;
+    }
+    .nav-icon {
+        width: 16px;
+        height: 16px;
+        min-width: 16px;
+    }
+    .page-title {
+        font-size: 1.8rem;
+    }
+    .members-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+    }
+    .member-card {
+        height: 180px; /* Even smaller height for cards */
+    }
+    .member-overlay {
+        min-height: 50px;
+        font-size: 0.8rem;
+    }
+    .member-name {
+        font-size: 0.9rem;
+    }
+    .member-role {
+        font-size: 0.7rem;
     }
 }
