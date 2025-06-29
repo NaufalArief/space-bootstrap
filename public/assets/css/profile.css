@@ -10,6 +10,7 @@ body {
     color: white;
     min-height: 100vh;
     overflow-x: hidden;
+    font-size: 16px; /* Base font size for accessibility */
 }
 
 /* Animated Stars Background */
@@ -67,14 +68,15 @@ body {
 
 /* Sidebar Styles */
 .sidebar {
-    width: 280px;
+    width: 280px; /* Default desktop width */
     background: rgba(20, 25, 45, 0.95);
     backdrop-filter: blur(10px);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
     padding: 2rem 1rem;
-    position: fixed;
+    position: fixed; /* Fixed for desktop */
     height: 100vh;
     overflow-y: auto;
+    transition: width 0.3s ease, padding 0.3s ease; /* Smooth transition for width/padding */
 }
 
 .logo {
@@ -82,7 +84,7 @@ body {
     align-items: center;
     gap: 1rem;
     margin-bottom: 3rem;
-    font-size: 1.8rem;
+    font-size: 1.8rem; /* Use rem */
     font-weight: bold;
 }
 
@@ -90,7 +92,6 @@ body {
     height: 100%;
     object-fit: contain;
 }
-
 
 .logo-icon {
     width: 40px;
@@ -123,6 +124,7 @@ body {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    font-size: 1rem; /* Use rem for better accessibility */
 }
 
 .nav-link:hover {
@@ -140,238 +142,348 @@ body {
     width: 20px;
     height: 20px;
     fill: currentColor;
+    min-width: 20px; /* Ensure icon doesn't shrink */
 }
 
+/* Main content for profile pages */
+.main-content {
+    flex: 1;
+    margin-left: 280px; /* Adjust for desktop sidebar width */
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    box-sizing: border-box; /* Include padding in width calculation */
+    transition: margin-left 0.3s ease, padding 0.3s ease;
+}
 
-        .main-content {
-            flex: 1;
-            margin-left: 280px;
-            padding: 2rem;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
+.profile-container {
+    max-width: 500px;
+    width: 100%;
+}
 
-        .profile-container {
-            max-width: 500px;
-            width: 100%;
-        }
+.profile-card { /* This seems to be an unused class in all-members.html now */
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    text-align: center;
+}
 
-        .profile-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            text-align: center;
-        }
+.profile-header { /* This seems to be an unused class in all-members.html now */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
 
-        .profile-header {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
+.profile-avatar { /* This seems to be an unused class in all-members.html now */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #00d4ff, #ff6b6b);
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .profile-avatar {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: linear-gradient(45deg, #00d4ff, #ff6b6b);
-            padding: 4px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.avatar-img { /* Used in member-info-card */
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    background: #1a1a2e;
+}
 
-        .avatar-img {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            object-fit: cover;
-            background: #1a1a2e;
-        }
+.profile-title { /* This seems to be an unused class in all-members.html now */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
 
-        .profile-title {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
+.profile-title h2 { /* This seems to be an unused class in all-members.html now */
+    font-size: 2rem;
+    background: linear-gradient(45deg, #00d4ff, #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
 
-        .profile-title h2 {
-            font-size: 2rem;
-            background: linear-gradient(45deg, #00d4ff, #ff6b6b);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
+.verified-badge { /* This seems to be an unused class in all-members.html now */
+    width: 24px;
+    height: 24px;
+    background: #00d4ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .verified-badge {
-            width: 24px;
-            height: 24px;
-            background: #00d4ff;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.verified-badge svg { /* This seems to be an unused class in all-members.html now */
+    width: 16px;
+    height: 16px;
+    fill: white;
+}
 
-        .verified-badge svg {
-            width: 16px;
-            height: 16px;
-            fill: white;
-        }
+.member-info-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 20px;
+    padding: 2rem;
+    text-align: center;
+}
 
-        .member-info-card {
-            background: rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 20px;
-            padding: 2rem;
-            text-align: center;
-        }
+.member-header {
+    margin-bottom: 2rem;
+}
 
-        .member-header {
-            margin-bottom: 2rem;
-        }
+.member-avatar {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(45deg, #00d4ff, #ff6b6b);
+    border-radius: 50%;
+    margin: 0 auto 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-        .member-avatar {
-            width: 80px;
-            height: 80px;
-            background: linear-gradient(45deg, #00d4ff, #ff6b6b);
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+.member-avatar svg {
+    width: 40px;
+    height: 40px;
+    fill: white;
+}
 
-        .member-avatar svg {
-            width: 40px;
-            height: 40px;
-            fill: white;
-        }
+.member-avatar img.avatar-img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: px solid #fff; /* Border value missing, assuming 0px or similar */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
 
-        .member-avatar img.avatar-img {
-        width: 80px;
-        height: 80px;
-        object-fit: cover;
-        border-radius: 50%;
-        border: px solid #fff;
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-        }
+.member-avatar img.avatar-img:hover {
+    transform: scale(2.05);
+    transition: 0.5s ease;
+}
 
-        .member-avatar img.avatar-img:hover {
-        transform: scale(2.05);
-        transition: 0.5s ease;
-        }
+.member-header h3 {
+    font-size: 1.5rem; /* Use rem */
+    margin-bottom: 1rem;
+    color: #00d4ff;
+}
 
+.member-divider {
+    width: 60px;
+    height: 3px;
+    background: linear-gradient(45deg, #00d4ff, #ff6b6b);
+    margin: 0 auto;
+    border-radius: 2px;
+}
 
-        .member-header h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #00d4ff;
-        }
+.member-details {
+    margin-bottom: 2rem;
+}
 
-        .member-divider {
-            width: 60px;
-            height: 3px;
-            background: linear-gradient(45deg, #00d4ff, #ff6b6b);
-            margin: 0 auto;
-            border-radius: 2px;
-        }
+.detail-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
 
-        .member-details {
-            margin-bottom: 2rem;
-        }
+.detail-item:last-child {
+    border-bottom: none;
+}
 
-        .detail-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
+.detail-item label {
+    font-weight: bold;
+    color: #00d4ff;
+    font-size: 0.9rem; /* Use rem */
+}
 
-        .detail-item:last-child {
-            border-bottom: none;
-        }
+.detail-item span {
+    color: rgba(255, 255, 255, 0.9);
+    text-align: right;
+    max-width: 60%;
+    font-size: 1rem; /* Use rem */
+}
 
-        .detail-item label {
-            font-weight: bold;
-            color: #00d4ff;
-            font-size: 0.9rem;
-        }
+.qr-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+}
 
-        .detail-item span {
-            color: rgba(255, 255, 255, 0.9);
-            text-align: right;
-            max-width: 60%;
-        }
+.qr-code {
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+    overflow: hidden;
+    border: 3px solid rgba(0, 212, 255, 0.5);
+    box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
+}
 
-        .qr-section {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 1.5rem;
-        }
+.qr-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background: white;
+}
 
-        .qr-code {
-            width: 150px;
-            height: 150px;
-            border-radius: 15px;
-            overflow: hidden;
-            border: 3px solid rgba(0, 212, 255, 0.5);
-            box-shadow: 0 0 20px rgba(0, 212, 255, 0.3);
-        }
+.complete-btn {
+    background: linear-gradient(45deg, #00d4ff, #ff6b6b);
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 50px;
+    font-size: 1rem; /* Use rem */
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
 
-        .qr-image {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            background: white;
-        }
+.complete-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
+}
 
-        .complete-btn {
-            background: linear-gradient(45deg, #00d4ff, #ff6b6b);
-            color: white;
-            border: none;
-            padding: 1rem 2rem;
-            border-radius: 50px;
-            font-size: 1rem;
-            font-weight: bold;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-decoration: none;
-            display: inline-block;
-        }
+/* Responsive */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Stacks sidebar and main content vertically */
+    }
+    
+    .sidebar {
+        width: 100%; /* Full width sidebar on mobile */
+        height: auto; /* Height adjusts to content on mobile (not fixed 100vh) */
+        position: relative; /* Sidebar flows with document, not fixed on mobile */
+        padding: 1rem;
+        border-right: none; /* Remove right border on mobile */
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add bottom border to separate from main content */
+    }
+    
+    .sidebar .logo {
+        justify-content: center; /* Centers the logo in the sidebar on mobile */
+        margin-bottom: 1rem;
+    }
+    
+    .nav-menu {
+        display: flex; /* Makes navigation items horizontal */
+        flex-wrap: wrap; /* Allows items to wrap to next line if space is limited */
+        justify-content: center; /* Centers nav items horizontally */
+        gap: 0.5rem; /* Smaller gap between items */
+    }
+    
+    .nav-item {
+        margin-bottom: 0; /* Removes extra vertical space between nav items */
+    }
+    
+    .nav-link {
+        flex-direction: column; /* Stacks icon and text vertically within each link */
+        gap: 0.2rem; /* Smaller gap between icon and text */
+        padding: 0.5rem; /* Smaller padding for link background */
+        font-size: 0.75rem; /* Smaller font size for nav text */
+        text-align: center;
+    }
+    
+    .nav-link span {
+        display: block; /* Ensures text takes its own line if needed */
+        font-size: 0.75rem; /* Explicitly set font size for span */
+    }
+    
+    .nav-icon {
+        width: 18px; /* Slightly smaller icon size */
+        height: 18px;
+        min-width: 18px;
+    }
+    
+    .main-content {
+        margin-left: 0; /* Removes left margin, allowing main content to take full width */
+        padding: 1rem;
+        justify-content: flex-start; /* Adjust alignment for stacked content */
+        align-items: center; /* Center horizontally if content narrower than main-content */
+    }
+    
+    .profile-container {
+        max-width: 400px;
+        margin: 0 auto; /* Center the profile container */
+    }
 
-        .complete-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 25px rgba(0, 212, 255, 0.3);
-        }
+    .member-info-card {
+        padding: 1.5rem;
+    }
 
-        @media (max-width: 768px) {
-            .sidebar {
-                width: 70px;
-            }
-            
-            .logo span {
-                display: none;
-            }
-            
-            .nav-link span {
-                display: none;
-            }
-            
-            .main-content {
-                margin-left: 70px;
-                padding: 1rem;
-            }
-            
-            .profile-container {
-                max-width: 400px;
-            }
-        }
+    .member-header h3 {
+        font-size: 1.3rem;
+    }
+
+    .detail-item label {
+        font-size: 0.8rem;
+    }
+
+    .detail-item span {
+        font-size: 0.9rem;
+    }
+
+    .qr-section {
+        flex-direction: column; /* Stack QR and button vertically */
+        gap: 1rem;
+    }
+
+    .qr-code {
+        width: 120px;
+        height: 120px;
+    }
+
+    .complete-btn {
+        padding: 0.8rem 1.5rem;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu {
+        gap: 0.2rem;
+    }
+    .nav-link {
+        padding: 0.3rem;
+        font-size: 0.7rem;
+    }
+    .nav-icon {
+        width: 16px;
+        height: 16px;
+        min-width: 16px;
+    }
+    .main-content {
+        padding: 0.5rem;
+    }
+    .member-info-card {
+        padding: 1rem;
+    }
+    .member-header h3 {
+        font-size: 1.1rem;
+    }
+    .detail-item label,
+    .detail-item span {
+        font-size: 0.8rem;
+    }
+    .qr-code {
+        width: 100px;
+        height: 100px;
+    }
+    .complete-btn {
+        padding: 0.6rem 1rem;
+        font-size: 0.8rem;
+    }
+}
