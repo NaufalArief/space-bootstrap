@@ -1,0 +1,443 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0a0e27 0%, #1a1a2e 50%, #16213e 100%);
+    color: white;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-size: 16px; /* Base font size for accessibility*/
+}
+
+/* Animated stars background */
+.stars {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.stars::before,
+.stars::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+    background-image:
+        radial-gradient(2px 2px at 20px 30px, #eee, transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255,255,255,0.8), transparent),
+        radial-gradient(1px 1px at 90px 40px, #fff, transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255,255,255,0.6), transparent),
+        radial-gradient(2px 2px at 160px 30px, #ddd, transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: sparkle 20s linear infinite;
+}
+
+.stars::after {
+    background-image:
+        radial-gradient(1px 1px at 40px 60px, #fff, transparent),
+        radial-gradient(1px 1px at 80px 10px, rgba(255,255,255,0.9), transparent),
+        radial-gradient(2px 2px at 120px 50px, #eee, transparent);
+    background-size: 180px 120px;
+    animation: sparkle 25s linear infinite reverse;
+}
+
+@keyframes sparkle {
+    from { transform: translateX(0); }
+    to { transform: translateX(-200px); }
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+    position: relative;
+    z-index: 1;
+}
+
+/* Sidebar Styles */
+.sidebar {
+    width: 280px; /* Default desktop width*/
+    background: rgba(20, 25, 45, 0.95);
+    backdrop-filter: blur(10px);
+    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 2rem 1rem;
+    position: fixed; /* Fixed for desktop*/
+    height: 100vh;
+    overflow-y: auto;
+    transition: width 0.3s ease, padding 0.3s ease; /* Smooth transition for width/padding*/
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+    font-size: 1.8rem; /* Use rem*/
+    font-weight: bold;
+}
+
+.logo-icon img.logo-img {
+    height: 100%;
+    object-fit: contain;
+}
+
+.logo-icon {
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(45deg, #ffffff 0%, #fbfbfb 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-weight: bold;
+}
+
+.nav-menu {
+    list-style: none;
+}
+
+.nav-item {
+    margin-bottom: 1rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    color: rgba(255, 255, 255, 0.7);
+    text-decoration: none;
+    border-radius: 12px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    font-size: 1rem; /* Use rem for better accessibility*/
+}
+
+.nav-link:hover {
+    background: linear-gradient(45deg, rgba(102, 126, 234, 0.2), rgba(118, 75, 162, 0.2));
+    color: white;
+    transform: translateX(5px);
+}
+
+.nav-link.active {
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    color: white;
+}
+
+.nav-icon {
+    width: 20px;
+    height: 20px;
+    fill: currentColor;
+    min-width: 20px; /* Ensure icon doesn't shrink*/
+}
+
+/* Main Content */
+.main-content {
+    flex: 1;
+    padding: 2rem;
+    background: rgba(10, 14, 39, 0.3);
+    margin-left: 280px; /* Default desktop margin for fixed sidebar*/
+    transition: margin-left 0.3s ease, padding 0.3s ease; /* Smooth transition*/
+}
+
+.header {
+    text-align: center;
+    margin-bottom: 3rem;
+    background: linear-gradient(135deg, rgba(102, 126, 234, 0.1), rgba(118, 75, 162, 0.1));
+    padding: 3rem;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.header h1 {
+    font-size: 3rem; /* Use rem*/
+    margin-bottom: 1rem;
+    background: linear-gradient(45deg, #667eea, #764ba2);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header p {
+    font-size: 1.2rem; /* Use rem*/
+    opacity: 0.8;
+    font-style: italic;
+}
+
+/* Schedule Cards Grid */
+.schedule-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Grid for cards */
+    gap: 2rem; /* Spacing between cards */
+    max-width: 1200px;
+    margin: 0 auto;
+    justify-content: center;
+}
+
+.schedule-card {
+    position: relative;
+    background: rgba(255, 255, 255, 0.05); /* Semi-transparent background for card base */
+    border-radius: 20px;
+    overflow: hidden; /* Ensure background image stays within bounds */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    height: auto; /* Allow height to adjust to content */
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+}
+
+.card-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover; /* Cover the entire card area */
+    background-position: center; /* Center the image */
+    filter: brightness(0.4) blur(3px); /* Darken and blur the background image */
+    transform: scale(1.05); /* Slightly larger to hide blur edges */
+    transition: filter 0.3s ease, transform 0.3s ease;
+    z-index: 0; /* Behind the content */
+}
+
+.schedule-card:hover .card-background {
+    filter: brightness(0.6) blur(0px); /* Lighter and sharper on hover */
+    transform: scale(1);
+}
+
+.card-content {
+    position: relative;
+    z-index: 1; /* Above the background */
+    padding: 1.5rem;
+    color: white; /* Ensure text is visible over background */
+    display: flex;
+    flex-direction: column;
+    height: 100%; /* Take full height of the card */
+}
+
+.card-content h2 {
+    font-size: 2.2rem; /* Size for day name */
+    margin-bottom: 1rem;
+    color: #ffa100; /* Bright color for day name */
+    text-align: center;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+    padding-bottom: 0.5rem;
+}
+
+.card-content ul {
+    list-style: none;
+    padding: 0;
+    flex-grow: 1; /* Allow ul to grow and push items down */
+}
+
+.card-content li {
+    background: rgba(255, 255, 255, 0.1); /* Slightly transparent background for each activity */
+    padding: 0.8rem 1rem;
+    margin-bottom: 0.6rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column; /* Stack time, activity, location by default */
+    align-items: flex-start;
+    gap: 0.2rem;
+    font-size: 1rem;
+    line-height: 1.4;
+}
+
+.card-content li:last-child {
+    margin-bottom: 0;
+}
+
+.card-content .time {
+    font-weight: bold;
+    color: #667eea;
+    font-size: 0.95rem; /* Slightly smaller time font */
+}
+
+.card-content .activity {
+    color: rgba(255, 255, 255, 0.95);
+    font-size: 1rem;
+}
+
+.card-content .location {
+    font-style: italic;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 0.85rem;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+        position: relative;
+        padding: 1rem;
+        border-right: none;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .sidebar .logo {
+        justify-content: center;
+        margin-bottom: 1rem;
+    }
+
+    .nav-menu {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.5rem;
+    }
+
+    .nav-item {
+        margin-bottom: 0;
+    }
+
+    .nav-link {
+        flex-direction: column;
+        gap: 0.2rem;
+        padding: 0.5rem;
+        font-size: 0.75rem;
+        text-align: center;
+    }
+
+    .nav-link span {
+        display: block;
+        font-size: 0.75rem;
+    }
+
+    .nav-icon {
+        width: 18px;
+        height: 18px;
+        min-width: 18px;
+    }
+
+    .main-content {
+        margin-left: 0;
+        padding: 1rem;
+    }
+
+    .header {
+        padding: 2rem 1.5rem;
+    }
+
+    .header h1 {
+        font-size: 2.2rem;
+    }
+
+    .header p {
+        font-size: 1rem;
+    }
+
+    .schedule-grid {
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Adjust min card width for smaller tablets */
+        gap: 1.5rem;
+    }
+
+    .schedule-card {
+        padding: 0; /* Reset padding for the card itself */
+    }
+
+    .card-content {
+        padding: 1rem; /* Adjust padding for content inside card */
+    }
+
+    .card-content h2 {
+        font-size: 1.8rem;
+    }
+
+    .card-content li {
+        padding: 0.7rem 0.8rem;
+        font-size: 0.9rem;
+    }
+
+    .card-content .time {
+        font-size: 0.9rem;
+    }
+
+    .card-content .activity {
+        font-size: 0.9rem;
+    }
+
+    .card-content .location {
+        font-size: 0.8rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .nav-menu {
+        gap: 0.2rem;
+    }
+    .nav-link {
+        padding: 0.3rem;
+        font-size: 0.7rem;
+    }
+    .nav-icon {
+        width: 16px;
+        height: 16px;
+        min-width: 16px;
+    }
+    .header {
+        padding: 2rem 1rem;
+    }
+    .header h1 {
+        font-size: 1.8rem;
+    }
+    .header p {
+        font-size: 0.9rem;
+    }
+
+    .schedule-grid {
+        grid-template-columns: 1fr; /* Single column on very small screens */
+        gap: 1rem;
+    }
+
+    .card-content h2 {
+        font-size: 1.5rem;
+    }
+
+    .card-content li {
+        flex-direction: column; /* Stack all elements on very small screens */
+        align-items: flex-start;
+        padding: 0.6rem 0.8rem;
+        font-size: 0.85rem;
+        gap: 0.2rem;
+    }
+
+    .card-content .time {
+        font-size: 0.85rem;
+        width: 100%; /* Full width when stacked */
+    }
+
+    .card-content .activity {
+        font-size: 0.85rem;
+        width: 100%;
+    }
+
+    .card-content .location {
+        font-size: 0.8rem;
+        width: 100%;
+    }
+}
