@@ -242,26 +242,26 @@
     </div>
 
     <script>
-        function openModal(imageUrl) {
-            const modal = document.getElementById('imageModal');
-            const modalImg = document.getElementById('modalImage');
-            modal.style.display = 'block';
-            modalImg.src = imageUrl;
-        }
+    function openModal(imageUrl) {
+        const modal = document.getElementById('imageModal');
+        const modalImg = document.getElementById('modalImage');
+        modal.style.display = 'flex'; // Change 'block' to 'flex' here
+        modalImg.src = imageUrl;
+    }
 
-        function closeModal() {
-            const modal = document.getElementById('imageModal');
-            modal.style.display = 'none';
-            const modalImg = document.getElementById('modalImage');
-            modalImg.src = '';
-        }
+    function closeModal() {
+        const modal = document.getElementById('imageModal');
+        modal.style.display = 'none';
+        const modalImg = document.getElementById('modalImage');
+        modalImg.src = '';
+    }
 
-        window.onclick = function(event) {
-            const modal = document.getElementById('imageModal');
-            if (event.target === modal) {
-                closeModal();
-            }
+    window.onclick = function(event) {
+        const modal = document.getElementById('imageModal');
+        if (event.target === modal) {
+            closeModal();
         }
-    </script>
+    }
+</script>
 </body>
 </html>
